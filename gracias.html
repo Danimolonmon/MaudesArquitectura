@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gracias — Maudes Arquitectura</title>
   <meta name="robots" content="noindex, nofollow" />
+  <!-- Google Ads tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18038177600"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18038177600');
+  </script>
   <link rel="stylesheet" href="styles.css" />
   <style>
     .gracias-section {
@@ -123,6 +131,13 @@
     if (new URLSearchParams(window.location.search).get('ok') === '0') {
       document.getElementById('send-error').style.display = 'block';
     }
+  </script>
+
+  <!-- Conversión Google Ads — sustituir REEMPLAZAR_LABEL por el label real de la conversión -->
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18038177600/REEMPLAZAR_LABEL'
+    });
   </script>
 
 </body>
