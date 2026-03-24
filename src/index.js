@@ -73,21 +73,20 @@ async function handleLead(request, env) {
 
   const plazoLabel = { 'ya': 'Ya (inmediato)', '3-6m': '3–6 meses', '6-12m': '6–12 meses' }[plazo] || plazo;
 
-  const htmlBody = `
-    <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1f1e1a">
-      <h2 style="margin:0 0 4px;font-size:1.2rem">Nuevo lead — Maudes Arquitectura</h2>
-      <p style="margin:0 0 20px;color:#62605a;font-size:0.85rem">${fecha}</p>
-      <table style="width:100%;border-collapse:collapse;font-size:0.92rem">
-        <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#62605a;width:160px">¿Tiene terreno?</td><td style="padding:8px 0;border-bottom:1px solid #eee"><strong>Sí</strong></td></tr>
-        <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#62605a">Ubicación</td><td style="padding:8px 0;border-bottom:1px solid #eee">${ubicacion}</td></tr>
-        <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#62605a">M² de parcela</td><td style="padding:8px 0;border-bottom:1px solid #eee">${m2_parcela || '<em style="color:#aaa">No indicado</em>'}</td></tr>
-        <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#62605a">Plazo</td><td style="padding:8px 0;border-bottom:1px solid #eee">${plazoLabel}</td></tr>
-        <tr><td style="padding:8px 0;border-bottom:1px solid #eee;color:#62605a">Email</td><td style="padding:8px 0;border-bottom:1px solid #eee"><a href="mailto:${email}">${email}</a></td></tr>
-        <tr><td style="padding:8px 0;color:#62605a">Teléfono</td><td style="padding:8px 0">${telefono || '<em style="color:#aaa">No indicado</em>'}</td></tr>
-      </table>
-      <p style="margin-top:24px;font-size:0.78rem;color:#aaa">Enviado desde landing-ads.html · Maudes Arquitectura</p>
-    </div>
-  `.trim();
+  // Normalizar opcionales: null/undefined/vacío → "No indicado"
+  const safe_m2       = m2_parcela || 'No indicado';
+  const safe_telefono = telefono   || 'No indicado';
+
+  const htmlBody = [
+    '<h2>Nuevo lead Maudes Arquitectura</h2>',
+    '<p><strong>Fecha:</strong> ' + esc(fecha) + '</p>',
+    '<p><strong>Tiene terreno:</strong> S&iacute;</p>',
+    '<p><strong>Ubicaci&oacute;n:</strong> ' + esc(ubicacion) + '</p>',
+    '<p><strong>M&sup2; parcela:</strong> ' + esc(safe_m2) + '</p>',
+    '<p><strong>Plazo:</strong> ' + esc(plazoLabel) + '</p>',
+    '<p><strong>Email:</strong> ' + esc(email) + '</p>',
+    '<p><strong>Tel&eacute;fono:</strong> ' + esc(safe_telefono) + '</p>',
+  ].join('\n');
 
   // 5. Enviar via Resend
   let resendOk = false;
@@ -106,7 +105,7 @@ async function handleLead(request, env) {
         from:    env.LEAD_FROM_EMAIL,
         to:      env.LEAD_TO_EMAIL,
         subject: 'Nuevo lead Maudes Arquitectura',
-        html:    '<p>Test lead Maudes Arquitectura</p>',
+        html:    htmlBody,
       }),
     });
 
@@ -124,4 +123,16 @@ async function handleLead(request, env) {
   // 6. Redirigir siempre — si Resend falló, gracias.html lo indica sutilmente
   const dest = new URL(resendOk ? '/gracias.html' : '/gracias.html?ok=0', request.url);
   return Response.redirect(dest.toString(), 303);
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+/** Escapa caracteres HTML para evitar inyección en el cuerpo del email */
+function esc(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
