@@ -494,7 +494,7 @@
           <h3>Comprueba si tu terreno encaja</h3>
           <p>Respuesta rápida. Evaluamos tu caso real, no una estimación genérica.</p>
 
-          <form class="lead-form" id="lead-form" action="#" method="post" novalidate>
+          <form class="lead-form" id="lead-form" action="/api/lead" method="post" novalidate>
 
             <div class="form-field">
               <label for="tiene_terreno">¿Tienes terreno?</label>
@@ -515,13 +515,25 @@
                 id="ubicacion"
                 name="ubicacion"
                 placeholder="Municipio o provincia"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="m2_parcela">M² de la parcela (opcional)</label>
+              <input
+                type="text"
+                id="m2_parcela"
+                name="m2_parcela"
+                placeholder="Ej. 500"
                 autocomplete="off"
               />
             </div>
 
             <div class="form-field">
               <label for="plazo">¿Cuándo quieres empezar?</label>
-              <select id="plazo" name="plazo">
+              <select id="plazo" name="plazo" required>
                 <option value="" disabled selected>Selecciona</option>
                 <option value="ya">Ya</option>
                 <option value="3-6m">3–6 meses</option>
@@ -538,6 +550,17 @@
                 placeholder="tu@email.com"
                 required
                 autocomplete="email"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="telefono">Teléfono (opcional)</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ej. 600 000 000"
+                autocomplete="tel"
               />
             </div>
 
