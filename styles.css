@@ -1,3 +1,28 @@
+/* ─── Gotham – tipografía principal ─────────────────────────────────────── */
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #f5f2ec;
   --bg-alt: #ede7dc;
@@ -22,10 +47,11 @@ html {
 
 body {
   margin: 0;
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 400;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 a {
@@ -42,61 +68,120 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(10px);
-  background: rgba(245, 242, 236, 0.86);
-  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  background: rgba(245, 242, 236, 0.92);
+  border-bottom: 1px solid rgba(31, 30, 26, 0.08);
 }
 
 .header-inner {
-  min-height: 76px;
+  min-height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 48px;
 }
 
 .brand {
   display: flex;
+  align-items: center;
+  gap: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 68px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+  flex-shrink: 0;
+}
+
+.brand:hover .brand-logo {
+  opacity: 1;
+}
+
+.brand-divider {
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: var(--line);
+  margin: 0 13px;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
   flex-direction: column;
+  gap: 4px;
   line-height: 1;
 }
 
-.brand-main {
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -0.07em;
-  text-transform: lowercase;
+.brand-name {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--text);
+  transition: color 0.25s ease;
 }
 
-.brand-sub {
-  font-size: 0.72rem;
+.brand-tagline {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
   color: var(--muted);
-  margin-top: 6px;
+  transition: color 0.25s ease;
+}
+
+.brand:hover .brand-name {
+  color: var(--dark);
+}
+
+.brand:hover .brand-tagline {
+  color: var(--text);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
 .nav a {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.nav a:not(.btn):hover {
+  color: var(--text);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: 0.2s ease;
+  min-height: 36px;
+  padding: 0 20px;
+  border-radius: 2px;
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
   border: 1px solid var(--dark);
 }
 
@@ -149,22 +234,26 @@ a {
   margin: 0 0 18px;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  font-weight: 300;
 }
 
 .hero h1 {
   margin: 0 0 18px;
   font-size: clamp(2.6rem, 5vw, 5.4rem);
+  font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.06em;
   max-width: 11ch;
 }
 
 .lead {
   max-width: 58ch;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
   margin: 0 0 26px;
 }
 
@@ -204,8 +293,7 @@ a {
   overflow: hidden;
   box-shadow: var(--shadow);
   background:
-    linear-gradient(rgba(24,24,22,0.28), rgba(24,24,22,0.28)),
-    url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    url("assets/hero-maudes.png") center center / cover no-repeat;
 }
 
 .hero-card {
@@ -213,6 +301,7 @@ a {
   left: 24px;
   right: 24px;
   bottom: 24px;
+  z-index: 2;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(10px);
   padding: 24px;
@@ -231,6 +320,7 @@ a {
 .hero-card h2 {
   margin: 0 0 10px;
   font-size: 1.45rem;
+  font-weight: 900;
   letter-spacing: -0.04em;
 }
 
@@ -256,6 +346,7 @@ a {
 .section-head h2 {
   margin: 0 0 10px;
   font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 900;
   line-height: 1;
   letter-spacing: -0.05em;
 }
@@ -289,8 +380,9 @@ a {
 
 .card h3 {
   margin: 0 0 10px;
-  font-size: 1.3rem;
-  letter-spacing: -0.03em;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 .card p {
@@ -314,13 +406,16 @@ a {
 .step span {
   display: inline-block;
   margin-bottom: 12px;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 900;
   letter-spacing: -0.06em;
 }
 
 .step h3 {
   margin: 0 0 10px;
-  font-size: 1.08rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .step p {
@@ -347,6 +442,7 @@ a {
 .studio-block h2 {
   margin: 0 0 14px;
   font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 900;
   line-height: 1.02;
   letter-spacing: -0.05em;
 }
@@ -440,9 +536,29 @@ a {
 
 @media (max-width: 760px) {
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 0;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+    min-height: 58px;
+    gap: 24px;
+  }
+
+  .brand-logo {
+    height: 26px;
+  }
+
+  .brand-divider {
+    height: 22px;
+    margin: 0 10px;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.56rem;
+    letter-spacing: 0.2em;
   }
 
   .nav {
