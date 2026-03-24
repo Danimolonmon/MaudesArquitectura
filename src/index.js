@@ -92,6 +92,10 @@ async function handleLead(request, env) {
   // 5. Enviar via Resend
   let resendOk = false;
   try {
+    console.log('Enviando email con Resend...');
+    console.log('FROM:', env.LEAD_FROM_EMAIL);
+    console.log('TO:', env.LEAD_TO_EMAIL);
+
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -102,14 +106,16 @@ async function handleLead(request, env) {
         from:    env.LEAD_FROM_EMAIL,
         to:      env.LEAD_TO_EMAIL,
         subject: 'Nuevo lead Maudes Arquitectura',
-        html:    htmlBody,
+        html:    '<p>Test lead Maudes Arquitectura</p>',
       }),
     });
 
     if (res.ok) {
       resendOk = true;
     } else {
-      console.error('Resend error:', res.status, await res.text());
+      const resBody = await res.text();
+      console.error('Resend error status:', res.status);
+      console.error('Resend error body:', resBody);
     }
   } catch (err) {
     console.error('Error conectando con Resend:', err);
