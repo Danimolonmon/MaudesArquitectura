@@ -3,8 +3,8 @@
  *
  * Secrets necesarios (Cloudflare Dashboard > Workers > Settings > Variables):
  *   RESEND_API_KEY   → API key de Resend (https://resend.com)
- *   LEAD_TO_EMAIL    → destinatario de los leads (marta@maudesarquitectura.com)
- *   LEAD_FROM_EMAIL  → remitente verificado en Resend (ej. web@maudesarquitectura.com)
+ *   LEAD_TO_EMAIL    → destinatario de los leads (marta@maudesarquitectura.es)
+ *   LEAD_FROM_EMAIL  → remitente verificado en Resend (ej. web@maudesarquitectura.es)
  *
  * Rutas:
  *   POST /api/lead  → procesa el formulario y envía email
