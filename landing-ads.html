@@ -215,6 +215,32 @@
       appearance: none;
     }
 
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group textarea {
+      font-family: 'Gotham', Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(31, 30, 26, 0.2);
+      border-radius: 4px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+      resize: vertical;
+      min-height: 64px;
+    }
+
+    .form-group textarea:focus {
+      border-color: var(--dark);
+    }
+
     .form-field input:focus,
     .form-field select:focus {
       border-color: var(--dark);
@@ -570,6 +596,23 @@
                 placeholder="Ej. 600 000 000"
                 autocomplete="tel"
               />
+            </div>
+
+            <div class="form-group">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="checkbox" name="contacto_inmediato" value="si">
+                <span>Puedes contactarme lo antes posible (incluidos festivos)</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="comentarios">¿Quieres añadir algún detalle? (opcional)</label>
+              <textarea
+                id="comentarios"
+                name="comentarios"
+                rows="2"
+                placeholder="Ej: dirección de la parcela, cuándo te viene bien que te llamemos…"
+              ></textarea>
             </div>
 
             <button type="submit" class="btn-form-submit">

@@ -42,6 +42,8 @@ async function handleLead(request, env) {
   const plazo         = (formData.get('plazo')         || '').trim();
   const email         = (formData.get('email')         || '').trim();
   const telefono      = (formData.get('telefono')      || '').trim();
+  const contacto_inmediato = formData.get('contacto_inmediato') === 'si' ? 'Sí' : 'No';
+  const comentarios = (formData.get('comentarios') || '').toString().trim();
 
   // 2. Validar campos obligatorios
   if (!tiene_terreno || !ubicacion || !plazo || !email) {
@@ -76,6 +78,7 @@ async function handleLead(request, env) {
   // Normalizar opcionales: null/undefined/vacío → "No indicado"
   const safe_m2       = m2_parcela || 'No indicado';
   const safe_telefono = telefono   || 'No indicado';
+  const safe_comentarios = comentarios || 'No indicado';
 
   const htmlBody = [
     '<h2>Nuevo lead Maudes Arquitectura</h2>',
@@ -86,6 +89,8 @@ async function handleLead(request, env) {
     '<p><strong>Plazo:</strong> ' + esc(plazoLabel) + '</p>',
     '<p><strong>Email:</strong> ' + esc(email) + '</p>',
     '<p><strong>Tel&eacute;fono:</strong> ' + esc(safe_telefono) + '</p>',
+    '<p><strong>Contacto inmediato:</strong> ' + esc(contacto_inmediato) + '</p>',
+    '<p><strong>Comentarios:</strong> ' + esc(safe_comentarios) + '</p>',
   ].join('\n');
 
   // 5. Enviar via Resend
