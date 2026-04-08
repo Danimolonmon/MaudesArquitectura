@@ -60,7 +60,11 @@
           <div class="hero-actions">
             <a href="#contacto" class="btn btn-dark">Solicitar contacto</a>
             <a href="#servicios" class="btn btn-light">Ver servicios</a>
+            <button type="button" id="start-ai-design-empty" class="btn btn-light">Explorar mi casa con IA</button>
           </div>
+          <p id="ai-session-error" style="display:none; margin:10px 0 0; font-size:0.85rem; color:#8b3a2a;">
+            No se ha podido iniciar la sesión, inténtalo de nuevo
+          </p>
 
           <div class="hero-points">
             <div>
@@ -256,5 +260,54 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var button = document.getElementById('start-ai-design-empty');
+      var errorBox = document.getElementById('ai-session-error');
+      var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
+      var SESSION_ENDPOINT = 'https://api.maudesarquitectura.es/api/public-intake/session';
+      var TENANT_ID = 'b490965c-41c3-4baf-807e-fbc06d7b86de';
+
+      if (!button) return;
+
+      button.addEventListener('click', async function () {
+        var originalText = button.textContent;
+        button.disabled = true;
+        button.textContent = 'Iniciando...';
+        if (errorBox) errorBox.style.display = 'none';
+
+        try {
+          var res = await fetch(SESSION_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              tenantId: TENANT_ID,
+              leadData: null
+            })
+          });
+
+          if (!res.ok) {
+            throw new Error('Error creando sesión pública');
+          }
+
+          var payload = await res.json();
+          if (!payload || !payload.redirectUrl) {
+            throw new Error('Respuesta incompleta de sesión pública');
+          }
+
+          var target = new URL(payload.redirectUrl, FRONTEND_BASE_URL);
+          window.location.href = target.toString();
+        } catch (err) {
+          console.error('Error iniciando sesión IA sin datos previos:', err);
+          button.disabled = false;
+          button.textContent = originalText;
+          if (errorBox) errorBox.style.display = 'block';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -710,9 +710,29 @@
 
   <script>
     (function () {
+      var form = document.getElementById('lead-form');
       var select = document.getElementById('tiene_terreno');
       var submit = document.querySelector('#lead-form .btn-form-submit');
       var msg    = document.getElementById('no-terreno-msg');
+
+      form.addEventListener('submit', function () {
+        var leadData = {
+          tiene_terreno: form.elements.tiene_terreno ? form.elements.tiene_terreno.value : '',
+          ubicacion: form.elements.ubicacion ? form.elements.ubicacion.value.trim() : '',
+          m2_parcela: form.elements.m2_parcela ? form.elements.m2_parcela.value.trim() : '',
+          plazo: form.elements.plazo ? form.elements.plazo.value : '',
+          email: form.elements.email ? form.elements.email.value.trim() : '',
+          telefono: form.elements.telefono ? form.elements.telefono.value.trim() : '',
+          contacto_inmediato: form.elements.contacto_inmediato && form.elements.contacto_inmediato.checked ? 'si' : 'no',
+          comentarios: form.elements.comentarios ? form.elements.comentarios.value.trim() : ''
+        };
+
+        try {
+          sessionStorage.setItem('leadData', JSON.stringify(leadData));
+        } catch (err) {
+          console.warn('No se pudo guardar leadData en sessionStorage', err);
+        }
+      });
 
       select.addEventListener('change', function () {
         var noTerreno = this.value === 'no';
