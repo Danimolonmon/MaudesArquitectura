@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes somos - Maudes Arquitectura</title>
+  <meta
+    name="description"
+    content="Conoce el equipo de Maudes Arquitectura: dirección arquitectónica y desarrollo tecnológico aplicados a proyectos viables y construibles."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .team-page {
+      padding: 54px 0 62px;
+    }
+
+    .team-page-intro,
+    .team-sheet {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .team-page-intro {
+      margin-bottom: 20px;
+    }
+
+    .team-page-intro h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 16ch;
+    }
+
+    .team-page-intro p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .team-photo-large {
+      min-height: 300px;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background-position: center top;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 18px;
+    }
+
+    .team-photo-marta {
+      background-image:
+        linear-gradient(180deg, rgba(31, 30, 26, 0.14), rgba(31, 30, 26, 0.09)),
+        url("assets/Foto estudio Marta.png");
+    }
+
+    .team-photo-dani {
+      background-image:
+        linear-gradient(180deg, rgba(31, 30, 26, 0.14), rgba(31, 30, 26, 0.09)),
+        url("assets/Foto estudio DANI.png");
+    }
+
+    .team-sheet h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .team-sheet p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .team-sheet ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .team-sheet li + li {
+      margin-top: 8px;
+    }
+
+    .team-cta {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#inicio" class="brand" aria-label="Maudes Arquitectura — Inicio">
+        <img
+          src="assets/logo-maudes-monograma.png"
+          alt=""
+          class="brand-logo"
+          aria-hidden="true"
+        />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <div class="brand-text">
+          <span class="brand-name">Maudes</span>
+          <span class="brand-tagline">arquitectura</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="/quienes-somos">Quiénes somos</a>
+        <a href="index.html#contacto" class="btn btn-dark">Contactar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="team-page">
+      <div class="container">
+        <article class="team-page-intro">
+          <p class="eyebrow">Estudio</p>
+          <h1>Arquitectura y tecnología en un único sistema de trabajo</h1>
+          <p>
+            En Maudes no trabajamos con procesos estándar. Arquitectura y tecnología forman
+            un único sistema: diseñamos y desarrollamos herramientas propias para llevar cada
+            proyecto a una solución construible, controlada y adaptada a su contexto.
+          </p>
+          <p>
+            El equipo combina dos perfiles complementarios. Marta lidera la dirección
+            arquitectónica y de obra; Dani lidera la capa tecnológica del estudio para
+            conectar diseño, normativa y construcción en un mismo flujo.
+          </p>
+        </article>
+
+        <div class="team-grid">
+          <article class="team-sheet">
+            <div class="team-photo-large team-photo-marta" role="img" aria-label="Marta García Maudes"></div>
+            <h2>Marta García Maudes</h2>
+            <p>
+              CEO y arquitecta. Arquitecta por la Universidad Politécnica de Madrid y máster
+              en Conservación y Restauración del Patrimonio Arquitectónico.
+            </p>
+            <p>
+              Desarrolla proyectos de obra nueva y rehabilitación desde un enfoque técnico
+              y realista, entendiendo la arquitectura como un proceso completo: desde la
+              viabilidad inicial hasta la definición constructiva y su ejecución en obra.
+            </p>
+            <p>
+              Ha trabajado en estudio propio y en gestión de proyectos de edificación en
+              Ineco, además de asumir durante años el desarrollo íntegro de proyectos como
+              arquitecta única.
+            </p>
+            <p>
+              Su trabajo prioriza la coherencia entre diseño, normativa y construcción,
+              evitando soluciones genéricas y adaptando cada proyecto a la parcela,
+              el presupuesto y las especificaciones del cliente. Combina BIM,
+              visualización y criterio constructivo para anticipar resultados y
+              reducir incertidumbre en obra.
+            </p>
+            <p>
+              Como CEO de Maudes Arquitectura, dirige el estudio con una idea clara:
+              hacer arquitectura que funcione en obra, no solo sobre el papel,
+              y que responda a su contexto a largo plazo.
+            </p>
+          </article>
+
+          <article class="team-sheet">
+            <div class="team-photo-large team-photo-dani" role="img" aria-label="Dani"></div>
+            <h2>Dani Zabala Hidalgo</h2>
+            <p>
+              CTO y responsable de desarrollo de producto y sistemas. Ingeniero de software
+              con más de 10 años de experiencia en desarrollo backend y producto digital,
+              especializado en sistemas complejos y entorno BIM.
+            </p>
+            <p>
+              Ha desarrollado soluciones completas de software, desde la definición de
+              requisitos hasta la implementación, trabajando con alta autonomía en
+              contextos de elevada exigencia técnica. Su experiencia incluye diseño
+              de sistemas, modelado de datos y herramientas propias orientadas a
+              resolver problemas reales.
+            </p>
+            <p>
+              Su trabajo se centra en trasladar la complejidad técnica a herramientas útiles.
+              Integra desarrollo de software, datos e inteligencia artificial en el proceso
+              arquitectónico para conectar diseño, normativa y construcción en un mismo flujo.
+            </p>
+            <p>
+              Como CTO de Maudes Arquitectura, lidera el desarrollo de la capa tecnológica
+              del estudio para hacer los proyectos más eficientes, controlables y escalables,
+              mejorando la experiencia del cliente y del equipo técnico.
+            </p>
+          </article>
+        </div>
+
+        <div class="team-cta">
+          <a href="index.html#contacto" class="btn btn-dark">Hablar con el estudio</a>
+          <a href="index.html" class="btn btn-light">Volver a inicio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Maudes Arquitectura</div>
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

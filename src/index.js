@@ -15,6 +15,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Alias de URL limpia para la página de equipo
+    if (url.pathname === '/quienes-somos') {
+      return env.ASSETS.fetch(new Request(new URL('/quienes-somos.html', request.url), request));
+    }
+
     // ── Formulario de leads ──────────────────────────────────────────────
     if (url.pathname === '/api/lead' && request.method === 'POST') {
       return handleLead(request, env);
