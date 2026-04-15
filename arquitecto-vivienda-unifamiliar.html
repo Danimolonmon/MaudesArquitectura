@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arquitecto vivienda unifamiliar | ¿Se puede construir y cuánto cuesta?</title>
+  <meta
+    name="description"
+    content="Antes de diseñar tu casa, analizamos terreno, normativa y coste real. Evita errores antes de empezar tu proyecto de vivienda unifamiliar."
+  />
+  <!-- Google Ads tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18038177600"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18038177600');
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── Estilos específicos de la landing SEO ────────────────────────── */
+
+    .seo-hero {
+      padding: 64px 0 48px;
+    }
+
+    .seo-hero-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .seo-hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .seo-hero-sub {
+      margin: 0 0 16px;
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.55;
+      max-width: 48ch;
+    }
+
+    .seo-hero-text {
+      margin: 0 0 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 54ch;
+    }
+
+    .seo-hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .seo-hero-visual {
+      border-radius: calc(var(--radius) + 6px);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 420px;
+      background:
+        url("assets/hero-maudes.png") center center / cover no-repeat;
+    }
+
+    /* Secciones genéricas */
+    .seo-section {
+      padding: 48px 0;
+    }
+
+    .seo-section-alt {
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .seo-head {
+      margin-bottom: 28px;
+    }
+
+    .seo-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .seo-head p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    /* Grid de tarjetas */
+    .seo-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .seo-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .seo-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Dudas */
+    .seo-dudas {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .seo-duda {
+      font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+      font-weight: 400;
+      color: var(--text);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      letter-spacing: -0.01em;
+    }
+
+    .seo-duda:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .seo-respuesta {
+      margin: 20px 0 0;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    /* Proceso */
+    .seo-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .seo-step {
+      border-top: 2px solid var(--dark);
+      padding-top: 16px;
+    }
+
+    .seo-step-num {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .seo-step h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-step p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Lista */
+    .seo-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .seo-list li {
+      padding: 4px 0;
+    }
+
+    .seo-list li + li {
+      margin-top: 6px;
+    }
+
+    /* Para quién */
+    .seo-audience {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .seo-audience-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .seo-audience-item h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-audience-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Diferenciación */
+    .seo-diff {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      max-width: 680px;
+    }
+
+    .seo-diff h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.06;
+    }
+
+    .seo-diff p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .seo-diff ul {
+      margin: 0 0 14px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .seo-diff li + li {
+      margin-top: 6px;
+    }
+
+    .seo-diff-result {
+      margin: 0;
+      font-weight: 900;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    /* Bloque "no encajamos" */
+    .seo-no-fit {
+      margin-top: 24px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .seo-no-fit p {
+      margin: 0;
+    }
+
+    /* FAQ */
+    .seo-faq {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .seo-faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .seo-faq-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .seo-faq-item summary {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .seo-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .seo-faq-item[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .seo-faq-item p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.58;
+    }
+
+    /* CTA final */
+    .seo-cta-section {
+      padding: 56px 0 64px;
+    }
+
+    .seo-cta-block {
+      max-width: 620px;
+    }
+
+    .seo-cta-block h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .seo-cta-block p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .seo-cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .seo-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .seo-audience {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .seo-hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .seo-hero-visual {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .seo-cards,
+      .seo-audience {
+        grid-template-columns: 1fr;
+      }
+
+      .seo-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .seo-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER ─────────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#inicio" class="brand" aria-label="Maudes Arquitectura — Inicio">
+        <img
+          src="assets/logo-maudes-monograma.png"
+          alt=""
+          class="brand-logo"
+          aria-hidden="true"
+        />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <div class="brand-text">
+          <span class="brand-name">Maudes</span>
+          <span class="brand-tagline">arquitectura</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="/quienes-somos">Quiénes somos</a>
+        <a href="index.html#contacto" class="btn btn-dark">Contactar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1 · HERO ──────────────────────────────────────────────────────── -->
+    <section class="seo-hero">
+      <div class="container seo-hero-inner">
+        <div class="seo-hero-copy">
+          <p class="eyebrow">Vivienda unifamiliar · Obra nueva</p>
+          <h1>Arquitecto para vivienda unifamiliar</h1>
+          <p class="seo-hero-sub">
+            Antes de diseñar una vivienda, lo importante es saber si realmente se puede construir,
+            cuánto puede costar y qué condiciona la normativa.
+          </p>
+          <p class="seo-hero-text">
+            Eso es lo que analizamos primero en cada proyecto: viabilidad urbanística del terreno,
+            precio real de construir la casa y condiciones técnicas. Después diseñamos.
+          </p>
+          <div class="seo-hero-actions">
+            <a href="index.html#contacto" class="btn btn-dark">Cuéntanos tu terreno y tu idea</a>
+            <button type="button" id="seo-ai-btn" class="btn btn-light">Explorar con IA (beta)</button>
+          </div>
+        </div>
+
+        <div class="seo-hero-visual" role="img" aria-label="Proyecto de vivienda unifamiliar"></div>
+      </div>
+    </section>
+
+    <!-- 2 · QUÉ HACEMOS ──────────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Servicio</p>
+          <h2>Qué hacemos exactamente</h2>
+          <p>
+            En <a href="/" style="color: var(--text); font-weight: 900; text-decoration: none;">Maudes Arquitectura</a> desarrollamos el proyecto completo de tu vivienda unifamiliar, desde el
+            primer análisis técnico hasta la dirección de obra.
+          </p>
+        </div>
+
+        <div class="seo-cards">
+          <article class="seo-card">
+            <h3>Proyecto desde cero</h3>
+            <p>
+              Diseño integral de la vivienda partiendo de tu programa de necesidades,
+              la parcela concreta y las condiciones urbanísticas que la afectan.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Adaptado a parcela</h3>
+            <p>
+              Orientación, topografía, accesos, retranqueos y normativa local
+              condicionan la propuesta. Los analizamos antes de dibujar nada.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Cumplimiento normativo</h3>
+            <p>
+              Plan general, código técnico, accesibilidad, eficiencia energética.
+              Lo verificamos desde el primer día para evitar problemas en licencia.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Control del coste</h3>
+            <p>
+              Estimamos el precio de construir la casa antes de desarrollar el proyecto.
+              Si el presupuesto no cuadra, lo sabemos pronto y ajustamos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · PROBLEMA DEL CLIENTE ─────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Problemas reales</p>
+          <h2>Lo que pasa cuando se empieza a construir una casa sin análisis previo</h2>
+        </div>
+
+        <div class="seo-dudas">
+          <p class="seo-duda">Terrenos donde la normativa solo permite la mitad de lo que esperabas</p>
+          <p class="seo-duda">Presupuestos que se disparan porque nadie estimó el precio de construir antes de diseñar</p>
+          <p class="seo-duda">Proyectos que se paralizan en licencia por incumplimientos evitables</p>
+          <p class="seo-duda">Decisiones de compra de parcela sin saber qué se puede edificar</p>
+        </div>
+
+        <p class="seo-respuesta">
+          Es habitual empezar un proyecto sin conocer estas limitaciones.
+          Esto suele traducirse en cambios, sobrecostes o proyectos que no se pueden ejecutar como se pensaban.
+          Todo esto se evita con un análisis técnico antes de tomar decisiones. Es lo primero que hacemos.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4 · CÓMO TRABAJAMOS ──────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Proceso</p>
+          <h2>Cómo desarrollamos un proyecto de vivienda</h2>
+        </div>
+
+        <div class="seo-steps">
+          <div class="seo-step">
+            <span class="seo-step-num">01</span>
+            <h3>Análisis de parcela</h3>
+            <p>Revisamos normativa urbanística, orientación, accesos y límites edificables.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">02</span>
+            <h3>Estudio de viabilidad</h3>
+            <p>Evaluamos si lo que quieres hacer es técnicamente posible y económicamente razonable.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">03</span>
+            <h3>Definición del proyecto</h3>
+            <p>Propuesta arquitectónica ajustada a uso, normativa y presupuesto real.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">04</span>
+            <h3>Desarrollo técnico</h3>
+            <p>Documentación completa para licencia, licitación y ejecución en obra.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">05</span>
+            <h3>Dirección de obra</h3>
+            <p>Seguimiento técnico para que el proyecto se construya como se ha diseñado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 · CTA INTERMEDIO ─────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-cta-block" style="max-width: 620px;">
+          <p class="eyebrow">¿Ya tienes terreno?</p>
+          <h2 style="font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin: 0 0 12px;">Podemos analizar si tu proyecto es viable antes de avanzar</h2>
+          <p style="margin: 0 0 20px; color: var(--muted);">
+            Si ya tienes un terreno o una idea clara de lo que necesitas, podemos ayudarte
+            a entender si es viable técnica y económicamente antes de tomar decisiones.
+          </p>
+          <p style="margin: 0 0 20px; color: var(--muted); font-size: 0.95rem;">
+            Si quieres ver un análisis detallado del coste, puedes consultar <a href="/cuanto-cuesta-construir-una-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">cuánto cuesta construir una casa</a> con rangos de precio y factores que influyen en el presupuesto.
+          </p>
+          <p style="margin: 0 0 20px; color: var(--muted); font-size: 0.95rem;">
+            También puedes hacer una primera aproximación con nuestro asistente, donde podrás
+            introducir información sobre tu terreno o idea y ver cómo podría encajar.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="index.html#contacto" class="btn btn-dark">Cuéntanos tu caso</a>
+            <button type="button" id="seo-ai-mid" class="btn btn-light">Explorar con el asistente (beta)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · QUÉ INCLUYE ──────────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Alcance</p>
+          <h2>Qué incluye el servicio</h2>
+        </div>
+
+        <ul class="seo-list">
+          <li>Proyecto básico y proyecto de ejecución completos.</li>
+          <li>Gestión de licencia y tramitación con la administración.</li>
+          <li>Dirección de obra y dirección de ejecución material.</li>
+          <li>Control técnico del proceso constructivo.</li>
+          <li>También ofrecemos <a href="index.html#servicios" style="color: var(--text); font-weight: 900; text-decoration: none;">otros servicios</a> como <a href="/rehabilitacion-vivienda" style="color: var(--text); font-weight: 900; text-decoration: none;">reformas integrales</a> y asesoramiento técnico.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6 · PARA QUIÉN ES ────────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Perfil</p>
+          <h2>Para quién es este servicio</h2>
+        </div>
+
+        <div class="seo-audience">
+          <article class="seo-audience-item">
+            <h3>Tienes terreno</h3>
+            <p>Ya cuentas con una parcela y necesitas un arquitecto para definir el proyecto de vivienda.</p>
+          </article>
+
+          <article class="seo-audience-item">
+            <h3>Estás valorando comprar</h3>
+            <p>Quieres saber si un terreno concreto permite construir lo que necesitas antes de comprarlo.</p>
+          </article>
+
+          <article class="seo-audience-item">
+            <h3>Necesitas viabilidad</h3>
+            <p>Tienes una idea pero no sabes si es viable: normativa, coste, plazos. Empezamos por ahí.</p>
+          </article>
+        </div>
+
+        <div class="seo-no-fit">
+          <p>
+            <strong>Probablemente no encajamos</strong> si buscas un presupuesto de obra sin proyecto,
+            si la idea es todavía muy abierta y no hay terreno ni ubicación concreta,
+            o si necesitas solo un plano para legalizar algo ya construido.
+            Si <a href="/comprar-terreno-construir-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">todavía no tienes terreno</a> o una ubicación definida, el primer paso es analizar ese punto antes de avanzar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · DIFERENCIACIÓN ───────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-diff">
+          <h2>No diseñamos primero y resolvemos después</h2>
+          <p>
+            La mayoría de problemas en obra vienen de decisiones tomadas demasiado pronto,
+            sin datos reales. Nosotros invertimos ese orden:
+          </p>
+          <ul>
+            <li>Comprobamos la normativa antes de proponer nada.</li>
+            <li>Estimamos costes con referencias reales, no orientativas.</li>
+            <li>El presupuesto es una restricción del proyecto, no una sorpresa al final.</li>
+          </ul>
+          <p class="seo-diff-result">
+            Resultado: un proyecto de vivienda que se puede ejecutar tal y como se ha diseñado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CTA FINAL ────────────────────────────────────────────────── -->
+    <section class="seo-cta-section">
+      <div class="container seo-cta-block">
+        <p class="eyebrow">Siguiente paso</p>
+        <h2>El primer paso no es diseñar, es entender si tu proyecto es viable</h2>
+        <p>
+          Si estás pensando en <a href="/" style="color: var(--muted); text-decoration: underline;">construir una casa</a>,
+          lo importante es validar la viabilidad antes de tomar decisiones.
+        </p>
+        <p style="margin: 16px 0 24px; font-weight: 900; color: var(--text); font-size: 1.05rem;">
+          Tienes dos opciones:
+        </p>
+        <div class="seo-cta-actions">
+          <a href="index.html#contacto" class="btn btn-dark">Hablar con nosotros</a>
+          <button type="button" id="seo-ai-cta" class="btn btn-light">Explorar con el asistente IA (beta)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · FAQ SEO ───────────────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de construir una casa</h2>
+        </div>
+
+        <div class="seo-faq">
+          <details class="seo-faq-item">
+            <summary>¿Se puede construir en cualquier terreno?</summary>
+            <p>
+              No. Cada parcela tiene una normativa urbanística que regula qué se puede edificar,
+              cuánta superficie, a qué altura y con qué retranqueos. Antes de comprar un terreno
+              o iniciar un proyecto, es imprescindible comprobar estas condiciones.
+            </p>
+            <p>
+              Si estás valorando comprar un terreno, puedes consultar nuestra guía sobre <a href="/comprar-terreno-construir-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">qué tener en cuenta antes de comprar un terreno para construir</a>.
+            </p>
+          </details>
+
+          <details class="seo-faq-item">
+            <summary>¿Cuánto cuesta construir una vivienda unifamiliar?</summary>
+            <p>
+              El precio de construir una casa depende del tamaño, la calidad de los materiales,
+              la tipología constructiva y las condiciones de la parcela. Como referencia orientativa,
+              el coste de ejecución suele situarse entre 1.200 y 1.800 €/m², pero cada caso necesita
+              una estimación específica.
+            </p>
+          </details>
+
+          <details class="seo-faq-item">
+            <summary>¿Qué necesito antes de empezar un proyecto de vivienda?</summary>
+            <p>
+              Lo mínimo: una parcela (o una en proceso de compra) y una idea general
+              de lo que necesitas. Con eso podemos hacer un primer análisis de viabilidad
+              y decirte si lo que planteas es posible, qué limitaciones tiene y cuánto puede costar.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Maudes Arquitectura</div>
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
+      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
+
+      // Botón hero
+      var btnHero = document.getElementById('seo-ai-btn');
+      if (btnHero) {
+        btnHero.addEventListener('click', function () {
+          var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+          window.location.href = intakeUrl;
+        });
+      }
+
+      // Botón CTA intermedio
+      var btnMid = document.getElementById('seo-ai-mid');
+      if (btnMid) {
+        btnMid.addEventListener('click', function () {
+          var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+          window.location.href = intakeUrl;
+        });
+      }
+
+      // Botón CTA final
+      var btnCTA = document.getElementById('seo-ai-cta');
+      if (btnCTA) {
+        btnCTA.addEventListener('click', function () {
+          var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+          window.location.href = intakeUrl;
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

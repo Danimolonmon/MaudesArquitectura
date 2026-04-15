@@ -20,6 +20,26 @@ export default {
       return env.ASSETS.fetch(new Request(new URL('/quienes-somos.html', request.url), request));
     }
 
+    // Alias de URL limpia para landing SEO vivienda unifamiliar
+    if (url.pathname === '/arquitecto-vivienda-unifamiliar') {
+      return env.ASSETS.fetch(new Request(new URL('/arquitecto-vivienda-unifamiliar.html', request.url), request));
+    }
+
+    // Alias de URL limpia para landing SEO rehabilitación
+    if (url.pathname === '/rehabilitacion-vivienda') {
+      return env.ASSETS.fetch(new Request(new URL('/rehabilitacion-vivienda.html', request.url), request));
+    }
+
+    // Alias de URL limpia para artículo SEO coste construcción
+    if (url.pathname === '/cuanto-cuesta-construir-una-casa') {
+      return env.ASSETS.fetch(new Request(new URL('/cuanto-cuesta-construir-una-casa.html', request.url), request));
+    }
+
+    // Alias de URL limpia para artículo SEO terrenos
+    if (url.pathname === '/comprar-terreno-construir-casa') {
+      return env.ASSETS.fetch(new Request(new URL('/comprar-terreno-construir-casa.html', request.url), request));
+    }
+
     // ── Formulario de leads ──────────────────────────────────────────────
     if (url.pathname === '/api/lead' && request.method === 'POST') {
       return handleLead(request, env);

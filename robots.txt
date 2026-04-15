@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maudesarquitectura.es/sitemap.xml

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reforma integral vivienda | Arquitecto para rehabilitación de casas</title>
+  <meta
+    name="description"
+    content="Reforma o rehabilita tu vivienda con criterio técnico. Analizamos estado, normativa y coste antes de empezar la obra."
+  />
+  <!-- Google Ads tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18038177600"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18038177600');
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── Estilos específicos de la landing SEO ────────────────────────── */
+
+    .seo-hero {
+      padding: 64px 0 48px;
+    }
+
+    .seo-hero-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .seo-hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .seo-hero-sub {
+      margin: 0 0 16px;
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.55;
+      max-width: 48ch;
+    }
+
+    .seo-hero-text {
+      margin: 0 0 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 54ch;
+    }
+
+    .seo-hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .seo-hero-visual {
+      border-radius: calc(var(--radius) + 6px);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 420px;
+      background:
+        url("assets/hero-maudes.png") center center / cover no-repeat;
+    }
+
+    /* Secciones genéricas */
+    .seo-section {
+      padding: 48px 0;
+    }
+
+    .seo-section-alt {
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .seo-head {
+      margin-bottom: 28px;
+    }
+
+    .seo-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .seo-head p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    /* Grid de tarjetas */
+    .seo-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .seo-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .seo-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Dudas */
+    .seo-dudas {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .seo-duda {
+      font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+      font-weight: 400;
+      color: var(--text);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      letter-spacing: -0.01em;
+    }
+
+    .seo-duda:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .seo-respuesta {
+      margin: 20px 0 0;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    /* Proceso */
+    .seo-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .seo-step {
+      border-top: 2px solid var(--dark);
+      padding-top: 16px;
+    }
+
+    .seo-step-num {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .seo-step h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-step p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Lista */
+    .seo-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .seo-list li {
+      padding: 4px 0;
+    }
+
+    .seo-list li + li {
+      margin-top: 6px;
+    }
+
+    /* Para quién */
+    .seo-audience {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .seo-audience-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .seo-audience-item h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .seo-audience-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Diferenciación */
+    .seo-diff {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      max-width: 680px;
+    }
+
+    .seo-diff h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.06;
+    }
+
+    .seo-diff p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .seo-diff ul {
+      margin: 0 0 14px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .seo-diff li + li {
+      margin-top: 6px;
+    }
+
+    .seo-diff-result {
+      margin: 0;
+      font-weight: 900;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    /* Bloque "no encajamos" */
+    .seo-no-fit {
+      margin-top: 24px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .seo-no-fit p {
+      margin: 0;
+    }
+
+    /* FAQ */
+    .seo-faq {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .seo-faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .seo-faq-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .seo-faq-item summary {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .seo-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .seo-faq-item[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .seo-faq-item p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.58;
+    }
+
+    /* CTA final */
+    .seo-cta-section {
+      padding: 56px 0 64px;
+    }
+
+    .seo-cta-block {
+      max-width: 620px;
+    }
+
+    .seo-cta-block h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .seo-cta-block p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .seo-cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .seo-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .seo-audience {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .seo-hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .seo-hero-visual {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .seo-cards,
+      .seo-audience {
+        grid-template-columns: 1fr;
+      }
+
+      .seo-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .seo-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER ─────────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#inicio" class="brand" aria-label="Maudes Arquitectura — Inicio">
+        <img
+          src="assets/logo-maudes-monograma.png"
+          alt=""
+          class="brand-logo"
+          aria-hidden="true"
+        />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <div class="brand-text">
+          <span class="brand-name">Maudes</span>
+          <span class="brand-tagline">arquitectura</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="/quienes-somos">Quiénes somos</a>
+        <a href="index.html#contacto" class="btn btn-dark">Contactar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1 · HERO ──────────────────────────────────────────────────────── -->
+    <section class="seo-hero">
+      <div class="container seo-hero-inner">
+        <div class="seo-hero-copy">
+          <p class="eyebrow">Reforma integral · Rehabilitación</p>
+          <h1>Rehabilitación y reforma de vivienda</h1>
+          <p class="seo-hero-sub">
+            Antes de reformar una casa, analizamos su estado, normativa y coste real.
+          </p>
+          <p class="seo-hero-text">
+            Reformar una vivienda no es solo redistribuir espacios. Es entender qué se puede hacer,
+            qué no y cuánto va a costar realmente antes de empezar la obra.
+          </p>
+          <div class="seo-hero-actions">
+            <a href="index.html#contacto" class="btn btn-dark">Cuéntanos tu caso</a>
+            <button type="button" id="rehab-ai-btn" class="btn btn-light">Explorar con IA (beta)</button>
+          </div>
+        </div>
+
+        <div class="seo-hero-visual" role="img" aria-label="Rehabilitación y reforma de vivienda"></div>
+      </div>
+    </section>
+
+    <!-- 2 · QUÉ HACEMOS ──────────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Servicio</p>
+          <h2>Qué hacemos exactamente</h2>
+          <p>
+            En <a href="/" style="color: var(--text); font-weight: 900; text-decoration: none;">Maudes Arquitectura</a> desarrollamos proyectos de reforma integral y rehabilitación,
+            analizando primero el estado de la vivienda existente y definiendo qué es viable hacer.
+          </p>
+        </div>
+
+        <div class="seo-cards">
+          <article class="seo-card">
+            <h3>Reformas integrales</h3>
+            <p>
+              Reorganización completa de espacios, actualización de instalaciones
+              y mejora funcional de viviendas existentes.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Rehabilitación de viviendas</h3>
+            <p>
+              Intervención en casas antiguas con criterio técnico, respetando estructura
+              y condiciones existentes mientras se actualiza la vivienda.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Adaptación a normativa</h3>
+            <p>
+              Actualización de instalaciones, accesibilidad y eficiencia energética
+              para cumplir con la normativa vigente.
+            </p>
+          </article>
+
+          <article class="seo-card">
+            <h3>Mejora de espacios</h3>
+            <p>
+              Optimización de luz natural, circulación y funcionalidad de la vivienda
+              con soluciones arquitectónicas reales, no decorativas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · PROBLEMA DEL CLIENTE ─────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Problemas reales</p>
+          <h2>Lo que pasa en muchas reformas</h2>
+        </div>
+
+        <div class="seo-dudas">
+          <p class="seo-duda">Casas antiguas con limitaciones estructurales que nadie analizó antes de empezar</p>
+          <p class="seo-duda">Reformas que se encarecen porque el presupuesto inicial no consideró lo real</p>
+          <p class="seo-duda">Falta de claridad sobre qué se puede hacer realmente en la vivienda</p>
+          <p class="seo-duda">Decisiones tomadas sin análisis previo del estado de la construcción</p>
+        </div>
+
+        <p class="seo-respuesta">
+          En muchas reformas, los problemas aparecen cuando la obra ya ha empezado.
+          Eso pasa porque no se analizó antes qué se podía hacer y qué no.
+          Nosotros empezamos por ahí.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4 · CÓMO TRABAJAMOS ──────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Proceso</p>
+          <h2>Cómo trabajamos una reforma o rehabilitación</h2>
+        </div>
+
+        <div class="seo-steps">
+          <div class="seo-step">
+            <span class="seo-step-num">01</span>
+            <h3>Análisis del estado actual</h3>
+            <p>Revisamos estructura, instalaciones existentes, patologías y limitaciones técnicas de la vivienda.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">02</span>
+            <h3>Estudio de viabilidad</h3>
+            <p>Evaluamos qué intervenciones son posibles técnica y económicamente en función del estado real.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">03</span>
+            <h3>Propuesta de intervención</h3>
+            <p>Definimos la reforma ajustada a lo que se puede hacer, la normativa y el presupuesto disponible.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">04</span>
+            <h3>Proyecto técnico</h3>
+            <p>Documentación completa para licencia, licitación y ejecución de la reforma.</p>
+          </div>
+          <div class="seo-step">
+            <span class="seo-step-num">05</span>
+            <h3>Dirección de obra</h3>
+            <p>Seguimiento técnico para que la reforma se ejecute como se ha proyectado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · QUÉ INCLUYE ──────────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Alcance</p>
+          <h2>Qué incluye el servicio</h2>
+        </div>
+
+        <ul class="seo-list">
+          <li>Proyecto técnico de reforma completo (básico y ejecución).</li>
+          <li>Gestión de licencia y tramitación administrativa.</li>
+          <li>Dirección de obra y dirección de ejecución.</li>
+          <li>Control del proceso constructivo y coordinación con contratistas.</li>
+          <li>También trabajamos en <a href="index.html#servicios" style="color: var(--text); font-weight: 900; text-decoration: none;">otros servicios</a> como <a href="/arquitecto-vivienda-unifamiliar" style="color: var(--text); font-weight: 900; text-decoration: none;">vivienda unifamiliar</a> y asesoramiento técnico.</li>
+        </ul>
+        <p style="margin: 20px 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
+          Si quieres conocer más sobre presupuestos realistas de construcción, puedes consultar nuestro artículo sobre <a href="/cuanto-cuesta-construir-una-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">cuánto cuesta construir una casa</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6 · PARA QUIÉN ES ────────────────────────────────────────────── -->
+    <section class="seo-section">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Perfil</p>
+          <h2>Para quién es este servicio</h2>
+        </div>
+
+        <div class="seo-audience">
+          <article class="seo-audience-item">
+            <h3>Propietarios que quieren reformar</h3>
+            <p>Tienes una vivienda que necesita actualización completa o mejora funcional.</p>
+          </article>
+
+          <article class="seo-audience-item">
+            <h3>Viviendas antiguas o desactualizadas</h3>
+            <p>Casas que requieren rehabilitación estructural, actualización de instalaciones o adaptación normativa.</p>
+          </article>
+
+          <article class="seo-audience-item">
+            <h3>Necesitas saber qué se puede hacer</h3>
+            <p>Antes de empezar, quieres entender qué intervenciones son viables técnica y económicamente.</p>
+          </article>
+        </div>
+
+        <div class="seo-no-fit">
+          <p>
+            <strong>Si buscas solo una reforma rápida sin análisis previo, este enfoque probablemente no encaje.</strong>
+            Trabajamos con reformas que requieren criterio técnico, no intervenciones puramente decorativas o sin proyecto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · DIFERENCIACIÓN ───────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-diff">
+          <h2>No reformamos primero y resolvemos después</h2>
+          <p>
+            Muchas reformas arrancan directamente con obra sin saber qué problemas puede haber.
+            Nosotros analizamos antes de intervenir:
+          </p>
+          <ul>
+            <li>Estado real de estructura e instalaciones existentes.</li>
+            <li>Viabilidad técnica de lo que se quiere hacer.</li>
+            <li>Coste real antes de empezar, no estimaciones genéricas.</li>
+          </ul>
+          <p class="seo-diff-result">
+            Resultado: una reforma que se ejecuta como se ha proyectado, sin sorpresas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CTA FINAL ────────────────────────────────────────────────── -->
+    <section class="seo-cta-section">
+      <div class="container seo-cta-block">
+        <p class="eyebrow">Siguiente paso</p>
+        <h2>Antes de empezar una reforma, lo importante es entender qué se puede hacer realmente</h2>
+        <p>
+          Si estás pensando en <a href="/" style="color: var(--muted); text-decoration: underline;">reformar tu vivienda</a>,
+          podemos ayudarte a analizar qué es viable antes de tomar decisiones.
+        </p>
+        <p style="margin: 16px 0 24px; font-weight: 900; color: var(--text); font-size: 1.05rem;">
+          Tienes dos opciones:
+        </p>
+        <div class="seo-cta-actions">
+          <a href="index.html#contacto" class="btn btn-dark">Hablar con nosotros</a>
+          <button type="button" id="rehab-ai-cta" class="btn btn-light">Explorar con el asistente IA (beta)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · FAQ SEO ───────────────────────────────────────────────────── -->
+    <section class="seo-section seo-section-alt">
+      <div class="container">
+        <div class="seo-head">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de reformar una vivienda</h2>
+        </div>
+
+        <div class="seo-faq">
+          <details class="seo-faq-item">
+            <summary>¿Cuánto cuesta reformar una vivienda?</summary>
+            <p>
+              Depende del alcance de la intervención, el estado de la vivienda existente y la calidad
+              de materiales. Como referencia, una reforma integral puede situarse entre 800 y 1.400 €/m²,
+              pero cada caso requiere un análisis específico.
+            </p>
+          </details>
+
+          <details class="seo-faq-item">
+            <summary>¿Qué se puede cambiar en una reforma?</summary>
+            <p>
+              Se puede modificar la distribución interior, actualizar instalaciones, mejorar accesibilidad
+              y eficiencia energética. Las limitaciones vienen del estado estructural de la vivienda,
+              la normativa aplicable y las condiciones de elementos protegidos si existen.
+            </p>
+          </details>
+
+          <details class="seo-faq-item">
+            <summary>¿Necesito proyecto para reformar mi casa?</summary>
+            <p>
+              Sí, si la reforma es integral o afecta a estructura, fachadas o elementos comunes.
+              Un proyecto técnico es necesario para obtener licencia, controlar el presupuesto
+              y garantizar que la obra se ejecute correctamente.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Maudes Arquitectura</div>
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
+      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
+
+      // Botón hero
+      var btnHero = document.getElementById('rehab-ai-btn');
+      if (btnHero) {
+        btnHero.addEventListener('click', function () {
+          var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+          window.location.href = intakeUrl;
+        });
+      }
+
+      // Botón CTA final
+      var btnCTA = document.getElementById('rehab-ai-cta');
+      if (btnCTA) {
+        btnCTA.addEventListener('click', function () {
+          var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+          window.location.href = intakeUrl;
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

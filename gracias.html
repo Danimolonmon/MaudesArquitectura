@@ -119,7 +119,7 @@
         <div class="gracias-actions">
           <a href="index.html" class="btn btn-light">Volver a la web</a>
           <a href="mailto:marta@maudesarquitectura.es" class="btn btn-dark">Escribirnos directamente</a>
-          <!-- <button type="button" id="start-ai-design" class="btn btn-dark">Empieza a diseñar tu casa con IA</button> -->
+          <button type="button" id="start-ai-design" class="btn btn-dark">Empieza a diseñar tu casa con IA (beta)</button>
         </div>
 
         <p class="gracias-error" id="session-error" role="alert">
@@ -149,61 +149,14 @@
 
     (function () {
       var button = document.getElementById('start-ai-design');
-      var sessionError = document.getElementById('session-error');
       var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
-      var SESSION_ENDPOINT = 'https://api.maudesarquitectura.es/api/public-intake/session';
-      var TENANT_ID = 'b490965c-41c3-4baf-807e-fbc06d7b86de';
+      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
 
       if (!button) return;
 
-      button.addEventListener('click', async function () {
-        var originalText = button.textContent;
-        button.disabled = true;
-        button.classList.add('btn-loading');
-        button.textContent = 'Iniciando...';
-        sessionError.style.display = 'none';
-
-        try {
-          var rawLeadData = sessionStorage.getItem('leadData');
-          var leadData = null;
-          if (rawLeadData) {
-            try {
-              leadData = JSON.parse(rawLeadData);
-            } catch (parseErr) {
-              console.warn('leadData inválido en sessionStorage, se enviará null', parseErr);
-              leadData = null;
-            }
-          }
-
-          var res = await fetch(SESSION_ENDPOINT, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              tenantId: TENANT_ID,
-              leadData: leadData
-            })
-          });
-
-          if (!res.ok) {
-            throw new Error('Error creando sesión pública');
-          }
-
-          var payload = await res.json();
-          if (!payload || !payload.redirectUrl) {
-            throw new Error('Respuesta incompleta de sesión pública');
-          }
-
-          var target = new URL(payload.redirectUrl, FRONTEND_BASE_URL);
-          window.location.href = target.toString();
-        } catch (err) {
-          console.error('Error iniciando flujo IA:', err);
-          sessionError.style.display = 'block';
-          button.disabled = false;
-          button.classList.remove('btn-loading');
-          button.textContent = originalText;
-        }
+      button.addEventListener('click', function () {
+        var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+        window.location.href = intakeUrl;
       });
     })();
   </script>

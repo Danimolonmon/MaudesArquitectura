@@ -56,7 +56,7 @@
 
           <div class="hero-actions">
             <a href="#contacto" class="btn btn-dark">Solicitar contacto</a>
-            <!-- <button type="button" id="start-ai-design-empty" class="btn btn-light">Explorar mi caso</button> -->
+            <button type="button" id="start-ai-design-empty" class="btn btn-light">Explorar mi caso (beta)</button>
           </div>
           <p id="ai-session-error" style="display:none; margin:10px 0 0; font-size:0.85rem; color:#8b3a2a;">
             No se ha podido iniciar la sesión, inténtalo de nuevo
@@ -106,18 +106,20 @@
             <span class="card-number">01</span>
             <h3>Vivienda unifamiliar</h3>
             <p>
-              Proyectos de vivienda pensados desde la parcela, la orientación,
-              el programa de necesidades y el presupuesto disponible.
+              Te ayudamos a diseñar y construir tu casa desde cero,
+              analizando terreno, normativa y coste antes de tomar decisiones.
             </p>
+            <a href="/arquitecto-vivienda-unifamiliar" class="card-link">Construir una casa desde cero</a>
           </article>
 
           <article class="card">
             <span class="card-number">02</span>
             <h3>Reformas integrales</h3>
             <p>
-              Reordenación de espacios, mejora de luz y circulación y
-              actualización completa de la vivienda con sentido arquitectónico.
+              Analizamos el estado de tu vivienda existente y definimos
+              qué se puede reformar realmente antes de empezar la obra.
             </p>
+            <a href="/rehabilitacion-vivienda" class="card-link">Reformar una vivienda</a>
           </article>
 
           <article class="card">
@@ -254,6 +256,17 @@
         </div>
       </div>
     </section>
+
+    <section class="section" style="padding: 32px 0; background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04);">
+      <div class="container">
+        <p style="margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 58ch;">
+          Si estás valorando construir una casa, puedes consultar nuestro artículo sobre <a href="/cuanto-cuesta-construir-una-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">cuánto cuesta construir una casa en España</a> con rangos de precio orientativos y qué factores influyen en el coste final.
+        </p>
+        <p style="margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 58ch;">
+          Si estás buscando terreno o ya tienes uno en mente, lee antes <a href="/comprar-terreno-construir-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">qué tener en cuenta antes de comprar un terreno para construir</a>.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -270,48 +283,14 @@
   <script>
     (function () {
       var button = document.getElementById('start-ai-design-empty');
-      var errorBox = document.getElementById('ai-session-error');
       var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
-      var SESSION_ENDPOINT = 'https://api.maudesarquitectura.es/api/public-intake/session';
-      var TENANT_ID = 'b490965c-41c3-4baf-807e-fbc06d7b86de';
+      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
 
       if (!button) return;
 
-      button.addEventListener('click', async function () {
-        var originalText = button.textContent;
-        button.disabled = true;
-        button.textContent = 'Iniciando...';
-        if (errorBox) errorBox.style.display = 'none';
-
-        try {
-          var res = await fetch(SESSION_ENDPOINT, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              tenantId: TENANT_ID,
-              leadData: null
-            })
-          });
-
-          if (!res.ok) {
-            throw new Error('Error creando sesión pública');
-          }
-
-          var payload = await res.json();
-          if (!payload || !payload.redirectUrl) {
-            throw new Error('Respuesta incompleta de sesión pública');
-          }
-
-          var target = new URL(payload.redirectUrl, FRONTEND_BASE_URL);
-          window.location.href = target.toString();
-        } catch (err) {
-          console.error('Error iniciando sesión IA sin datos previos:', err);
-          button.disabled = false;
-          button.textContent = originalText;
-          if (errorBox) errorBox.style.display = 'block';
-        }
+      button.addEventListener('click', function () {
+        var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
+        window.location.href = intakeUrl;
       });
     })();
   </script>
