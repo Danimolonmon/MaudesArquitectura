@@ -8,6 +8,11 @@
     name="description"
     content="Maudes Arquitectura. Proyectos de vivienda, reformas y arquitectura residencial con una mirada contemporánea, clara y funcional."
   />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  
   <!-- Google Ads tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18038177600"></script>
   <script>
@@ -49,18 +54,15 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Arquitectura clara y contemporánea</p>
-          <h1>Arquitectura pensada para construirse bien</h1>
+          <h1>Diseña tu casa en tu parcela, con criterio real desde el primer minuto</h1>
           <p class="lead">
-            Estudiamos tu parcela, normativa y presupuesto antes de definir el proyecto.
+            Sin soluciones tipo catálogo. Analizamos tu caso y te orientamos desde el inicio.
           </p>
 
           <div class="hero-actions">
-            <a href="#contacto" class="btn btn-dark">Solicitar contacto</a>
-            <button type="button" id="start-ai-design-empty" class="btn btn-light">Explorar mi caso (beta)</button>
+            <button type="button" onclick="startPublicChat()" class="btn btn-dark">Empieza a definir tu casa</button>
+            <a href="#contacto" class="btn btn-light">Solicitar contacto</a>
           </div>
-          <p id="ai-session-error" style="display:none; margin:10px 0 0; font-size:0.85rem; color:#8b3a2a;">
-            No se ha podido iniciar la sesión, inténtalo de nuevo
-          </p>
 
           <div class="hero-points">
             <div>
@@ -87,6 +89,57 @@
               parcela, normativa, coste y forma real de construir.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cómo funciona</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span>1</span>
+            <h3>Nos cuentas tu parcela</h3>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <h3>Definimos contigo la vivienda</h3>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <h3>Te damos una propuesta realista</h3>
+          </div>
+        </div>
+        <div style="margin-top: 28px; text-align: center;">
+          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Probar ahora</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section differential">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cada parcela es distinta</h2>
+          <p class="section-text">
+            Normativa, orientación, topografía o accesos condicionan lo que realmente se puede construir.
+            Antes de hablar de diseño, hay que entender el terreno.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section estimation" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+      <div class="container">
+        <div class="section-head">
+          <h2>¿Cuánto puede costar tu casa?</h2>
+          <p class="section-text">
+            Podemos darte un rango orientativo según tu parcela y lo que buscas.
+          </p>
+        </div>
+        <div style="margin-top: 28px; text-align: center;">
+          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Calcular rango con IA</button>
         </div>
       </div>
     </section>
@@ -267,6 +320,17 @@
         </p>
       </div>
     </section>
+
+    <section class="section final-cta" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+      <div class="container">
+        <div class="section-head" style="text-align: center;">
+          <h2>Si tienes un terreno y no sabes por dónde empezar</h2>
+        </div>
+        <div style="margin-top: 28px; text-align: center;">
+          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Diseñar mi casa</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -281,18 +345,26 @@
   </footer>
 
   <script>
-    (function () {
-      var button = document.getElementById('start-ai-design-empty');
-      var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
-      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
+    async function startPublicChat(leadData = null) {
+      try {
+        const res = await fetch('https://api.maudesarquitectura.es/api/public-intake/session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tenantId: 'b490965c-41c3-4baf-807e-fbc06d7b86de',
+            leadData: leadData
+          })
+        });
 
-      if (!button) return;
+        const data = await res.json();
 
-      button.addEventListener('click', function () {
-        var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
-        window.location.href = intakeUrl;
-      });
-    })();
+        window.location.href =
+          'https://iarquitect.maudesarquitectura.es' + data.redirectUrl;
+
+      } catch (err) {
+        alert('No se ha podido iniciar la sesión. Inténtalo de nuevo.');
+      }
+    }
   </script>
 </body>
 </html>
