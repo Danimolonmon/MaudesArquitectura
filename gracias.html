@@ -18,64 +18,9 @@
     gtag('js', new Date());
     gtag('config', 'AW-18038177600');
   </script>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .gracias-section {
-      min-height: calc(100vh - 68px);
-      display: flex;
-      align-items: center;
-      padding: 64px 0;
-    }
-
-    .gracias-inner {
-      max-width: 560px;
-    }
-
-    .gracias-inner h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -0.05em;
-    }
-
-    .gracias-inner p {
-      margin: 0 0 14px;
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 50ch;
-    }
-
-    .gracias-inner p:last-of-type {
-      margin-bottom: 36px;
-    }
-
-    .gracias-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .gracias-error {
-      display: none;
-      margin: 0 0 28px;
-      padding: 14px 18px;
-      border: 1px solid rgba(139, 58, 42, 0.3);
-      border-radius: 8px;
-      background: rgba(139, 58, 42, 0.05);
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: #8b3a2a;
-      line-height: 1.5;
-    }
-
-    .btn-loading {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles-pages.css" />
+  <link rel="stylesheet" href="pages-custom.css" />
+  <script src="chat.js" defer></script>
 </head>
 <body>
 
@@ -151,19 +96,6 @@
     if (new URLSearchParams(window.location.search).get('ok') === '0') {
       document.getElementById('send-error').style.display = 'block';
     }
-
-    (function () {
-      var button = document.getElementById('start-ai-design');
-      var FRONTEND_BASE_URL = 'https://iarquitect.maudesarquitectura.es';
-      var TENANT_ID = '46df1d61-7ffe-4469-8b42-b521eda04e8b';
-
-      if (!button) return;
-
-      button.addEventListener('click', function () {
-        var intakeUrl = FRONTEND_BASE_URL + '/intake?tenantId=' + encodeURIComponent(TENANT_ID);
-        window.location.href = intakeUrl;
-      });
-    })();
   </script>
 
   <!-- Conversión Google Ads — sustituir REEMPLAZAR_LABEL por el label real de la conversión -->

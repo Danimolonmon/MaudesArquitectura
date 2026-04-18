@@ -22,10 +22,11 @@
     gtag('config', 'AW-18038177600');
   </script>
   <link rel="stylesheet" href="styles.css" />
+  <script src="chat.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="container-fluid">
       <a href="#inicio" class="brand" aria-label="Maudes Arquitectura — Inicio">
         <img
           src="assets/logo-maudes-monograma.png"
@@ -50,132 +51,175 @@
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Arquitectura clara y contemporánea</p>
-          <h1>Diseña tu casa en tu parcela, con criterio real desde el primer minuto</h1>
-          <p class="lead">
-            Sin soluciones tipo catálogo. Analizamos tu caso y te orientamos desde el inicio.
-          </p>
-
-          <div class="hero-actions">
-            <button type="button" onclick="startPublicChat()" class="btn btn-dark">Empieza a definir tu casa</button>
-            <a href="#contacto" class="btn btn-light">Solicitar contacto</a>
-          </div>
-
-          <div class="hero-points">
-            <div>
-              <strong>Vivienda</strong>
-              <span>Obra nueva y reforma</span>
-            </div>
-            <div>
-              <strong>Rigor</strong>
-              <span>Viabilidad y normativa desde el inicio</span>
-            </div>
-            <div>
-              <strong>Claridad</strong>
-              <span>Proyecto preparado para obra real</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-card">
-            <p class="hero-card-label">Maudes Arquitectura</p>
-            <h2>Menos ruido. Mejor arquitectura.</h2>
-            <p>
-              Cada decisión se toma con una base técnica clara:
-              parcela, normativa, coste y forma real de construir.
-            </p>
-          </div>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 1: HERO - Pantalla completa, limpio
+         Contenido: título, subtítulo, CTA principal
+         Layout: centrado vertical, max-width contenido
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="hero-full" id="inicio">
+      <div class="container-narrow">
+        <p class="eyebrow">Arquitectura clara y contemporánea</p>
+        <h1>Diseña tu casa en tu parcela, con criterio real desde el primer minuto</h1>
+        <p class="lead">
+          Sin soluciones tipo catálogo. Analizamos tu caso y te orientamos desde el inicio.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary btn-ai-chat">
+            Habla con nuestra IA
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section process" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 2: PROCESO - 3 pasos en grid limpio
+         Contenido: pasos del proceso simplificado
+         Layout: grid 3 columnas, espacioso
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-process" id="proceso">
       <div class="container">
-        <div class="section-head">
-          <h2>Cómo funciona</h2>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <span>1</span>
-            <h3>Nos cuentas tu parcela</h3>
+        <h2 class="section-title">Cómo funciona</h2>
+        
+        <div class="process-grid">
+          <div class="process-step">
+            <span class="step-number">1</span>
+            <h3>Entendemos tu parcela</h3>
+            <p>Revisamos objetivos, terreno y límites normativos desde el inicio.</p>
           </div>
-          <div class="step">
-            <span>2</span>
-            <h3>Definimos contigo la vivienda</h3>
+          
+          <div class="process-step">
+            <span class="step-number">2</span>
+            <h3>Definimos la vivienda contigo</h3>
+            <p>Planteamos una solución ajustada al uso, la normativa y el presupuesto.</p>
           </div>
-          <div class="step">
-            <span>3</span>
+          
+          <div class="process-step">
+            <span class="step-number">3</span>
             <h3>Te damos una propuesta realista</h3>
+            <p>Convertimos la idea en documentación precisa para licitar y construir.</p>
           </div>
         </div>
-        <div style="margin-top: 28px; text-align: center;">
-          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Probar ahora</button>
+
+        <div class="block-cta">
+          <button type="button" class="btn btn-dark btn-ai-chat">
+            Hablar con IA
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="section differential">
-      <div class="container">
-        <div class="section-head">
-          <h2>Cada parcela es distinta</h2>
-          <p class="section-text">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 3: DIFERENCIAL - Cada parcela es distinta
+         Contenido: explicación normativa/terreno
+         Layout: texto centrado, max-width
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-differential">
+      <div class="container-narrow">
+        <h2 class="section-title">Cada parcela es distinta</h2>
+        <div class="text-content">
+          <p>
             Normativa, orientación, topografía o accesos condicionan lo que realmente se puede construir.
+          </p>
+          <p>
             Antes de hablar de diseño, hay que entender el terreno.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section estimation" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 4: ENFOQUE - Menos ruido, mejor arquitectura
+         Contenido: concepto + imagen (del hero-card original)
+         Layout: 2 columnas, imagen + texto
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-approach">
       <div class="container">
-        <div class="section-head">
-          <h2>¿Cuánto puede costar tu casa?</h2>
-          <p class="section-text">
-            Podemos darte un rango orientativo según tu parcela y lo que buscas.
-          </p>
-        </div>
-        <div style="margin-top: 28px; text-align: center;">
-          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Calcular rango con IA</button>
+        <div class="approach-grid">
+          <div class="approach-visual">
+            <img src="assets/hero-maudes.png" alt="Arquitectura Maudes" />
+          </div>
+          <div class="approach-text">
+            <h2>Menos ruido. Mejor arquitectura.</h2>
+            <p>
+              Cada decisión se toma con una base técnica clara: parcela, normativa, coste y forma real de construir.
+            </p>
+            <div class="pillars">
+              <div class="pillar">
+                <strong>Vivienda</strong>
+                <span>Obra nueva y reforma</span>
+              </div>
+              <div class="pillar">
+                <strong>Rigor</strong>
+                <span>Viabilidad y normativa desde el inicio</span>
+              </div>
+              <div class="pillar">
+                <strong>Claridad</strong>
+                <span>Proyecto preparado para obra real</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="servicios">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Servicios</p>
-          <h2>Qué hacemos</h2>
-          <p class="section-text">
-            Definimos proyectos viables desde el primer análisis técnico.
-          </p>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 5: ESTIMACIÓN - ¿Cuánto puede costar?
+         Contenido: bloque CTA hacia estimación
+         Layout: centrado, limpio
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-estimation">
+      <div class="container-narrow">
+        <h2 class="section-title">¿Cuánto puede costar tu casa?</h2>
+        <p class="text-center">
+          Podemos darte un rango orientativo según tu parcela y lo que buscas.
+        </p>
+        <div class="block-cta">
+          <button type="button" class="btn btn-primary btn-ai-chat">
+            Calcular rango con IA
+          </button>
         </div>
+      </div>
+    </section>
 
-        <div class="cards-3">
-          <article class="card">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 6: SERVICIOS - Qué hacemos
+         Contenido: 3 servicios (vivienda, reformas, asesoramiento)
+         Layout: grid 3 columnas
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-services" id="servicios">
+      <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-title">Qué hacemos</h2>
+        <p class="text-intro">
+          Definimos proyectos viables desde el primer análisis técnico.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card">
             <span class="card-number">01</span>
             <h3>Vivienda unifamiliar</h3>
             <p>
               Te ayudamos a diseñar y construir tu casa desde cero,
               analizando terreno, normativa y coste antes de tomar decisiones.
             </p>
-            <a href="/arquitecto-vivienda-unifamiliar" class="card-link">Construir una casa desde cero</a>
+            <a href="/arquitecto-vivienda-unifamiliar" class="card-link">
+              Construir una casa desde cero →
+            </a>
           </article>
 
-          <article class="card">
+          <article class="service-card">
             <span class="card-number">02</span>
             <h3>Reformas integrales</h3>
             <p>
               Analizamos el estado de tu vivienda existente y definimos
               qué se puede reformar realmente antes de empezar la obra.
             </p>
-            <a href="/rehabilitacion-vivienda" class="card-link">Reformar una vivienda</a>
+            <a href="/rehabilitacion-vivienda" class="card-link">
+              Reformar una vivienda →
+            </a>
           </article>
 
-          <article class="card">
+          <article class="service-card">
             <span class="card-number">03</span>
             <h3>Asesoramiento técnico</h3>
             <p>
@@ -187,43 +231,46 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="proceso">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 7: MÉTODO COMPLETO - Cómo trabajamos (4 pasos)
+         Contenido: proceso detallado existente
+         Layout: grid 2x2
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-method">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Proceso</p>
-          <h2>Cómo trabajamos</h2>
-          <p class="section-text">
-            Orden de trabajo para reducir riesgos y tomar decisiones con datos.
-          </p>
-        </div>
+        <p class="eyebrow">Nuestro método</p>
+        <h2 class="section-title">Cómo trabajamos</h2>
+        <p class="text-intro">
+          Orden de trabajo para reducir riesgos y tomar decisiones con datos.
+        </p>
 
-        <div class="steps">
-          <article class="step">
-            <span>01</span>
+        <div class="method-grid">
+          <article class="method-step">
+            <span class="step-badge">01</span>
             <h3>Escucha</h3>
             <p>
               Revisamos objetivos, parcela y límites normativos desde el inicio.
             </p>
           </article>
 
-          <article class="step">
-            <span>02</span>
+          <article class="method-step">
+            <span class="step-badge">02</span>
             <h3>Propuesta</h3>
             <p>
               Planteamos una solución ajustada al uso, la normativa y el presupuesto.
             </p>
           </article>
 
-          <article class="step">
-            <span>03</span>
+          <article class="method-step">
+            <span class="step-badge">03</span>
             <h3>Desarrollo</h3>
             <p>
               Convertimos la idea en documentación precisa para licitar y construir.
             </p>
           </article>
 
-          <article class="step">
-            <span>04</span>
+          <article class="method-step">
+            <span class="step-badge">04</span>
             <h3>Acompañamiento</h3>
             <p>
               Hacemos seguimiento técnico para mantener calidad y control en obra.
@@ -233,138 +280,167 @@
       </div>
     </section>
 
-    <section class="section" id="estudio">
-      <div class="container studio-grid">
-        <div class="studio-block studio-intro">
-          <p class="eyebrow">Quiénes somos</p>
-          <h2>Arquitectura con criterio técnico y compromiso de obra.</h2>
-          <p>
-            Trabajamos con método: analizamos viabilidad, normativa y alcance antes de proyectar.
-          </p>
-          <p>
-            Somos un estudio pequeño y de trato directo: arquitectura y tecnología trabajan
-            juntas para decidir mejor y construir con menos incertidumbre.
-          </p>
-          <a href="/quienes-somos" class="btn btn-light">Conócenos mejor</a>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 8: NOSOTROS - Quiénes somos
+         Contenido: intro, fotos, perfiles
+         Layout: alternado, espacioso
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-about" id="estudio">
+      <div class="container">
+        <p class="eyebrow">Quiénes somos</p>
+        <div class="about-intro">
+          <h2 class="section-title">Arquitectura con criterio técnico y compromiso de obra</h2>
+          <div class="intro-text">
+            <p>
+              Trabajamos con método: analizamos viabilidad, normativa y alcance antes de proyectar.
+            </p>
+            <p>
+              Somos un estudio pequeño y de trato directo: arquitectura y tecnología trabajan
+              juntas para decidir mejor y construir con menos incertidumbre.
+            </p>
+          </div>
         </div>
 
-        <div class="studio-block team-photos" aria-label="Equipo Maudes Arquitectura">
-          <div class="team-photo photo-marta" role="img" aria-label="Marta García Maudes"></div>
-          <div class="team-photo photo-dani" role="img" aria-label="Dani"></div>
-        </div>
-
-        <div class="studio-block profile-block">
-          <h3>Marta García Maudes</h3>
-          <p>
-            Arquitecta. Lidera proyecto, normativa y obra para que cada decisión sea
-            coherente con la parcela, el presupuesto y la ejecución real.
-          </p>
-        </div>
-
-        <div class="studio-block profile-block">
-          <h3>Dani</h3>
-          <p>
-            Responsable de tecnología y desarrollo. Diseña sistemas, IA y herramientas
-            internas para mejorar la experiencia del cliente y el proceso del proyecto.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-contact" id="contacto">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <p class="eyebrow">Contacto</p>
-          <h2>Cuéntanos tu proyecto</h2>
-          <p>
-            Una primera conversación sencilla suele ahorrar muchos problemas después.
-          </p>
-
-          <div class="contact-items">
-            <div>
-              <small>Email</small>
-              <a href="mailto:marta@maudesarquitectura.es">marta@maudesarquitectura.es</a>
+        <div class="team-section">
+          <div class="team-member">
+            <div class="member-photo">
+              <img src="assets/Foto estudio Marta.png" alt="Marta García Maudes" />
             </div>
-            <div>
-              <small>Teléfono</small>
-              <a href="tel:+34660013883">660 013 883</a>
+            <div class="member-info">
+              <h3>Marta García Maudes</h3>
+              <p class="member-role">Arquitecta</p>
+              <p>
+                Lidera proyecto, normativa y obra para que cada decisión sea
+                coherente con la parcela, el presupuesto y la ejecución real.
+              </p>
             </div>
-            <div>
-              <small>Zona</small>
-              <span>Madrid y otros proyectos a consultar</span>
+          </div>
+
+          <div class="team-member reverse">
+            <div class="member-photo">
+              <img src="assets/Foto estudio DANI.png" alt="Daniel Zabala Hidalgo" />
+            </div>
+            <div class="member-info">
+              <h3>Daniel Zabala Hidalgo</h3>
+              <p class="member-role">Tecnología y desarrollo</p>
+              <p>
+                Responsable de tecnología y desarrollo. Diseña sistemas, IA y herramientas
+                internas para mejorar la experiencia del cliente y el proceso del proyecto.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="contact-box">
-          <h3>Escríbenos</h3>
-          <p>
-            Esta versión puede funcionar solo como escaparate. Para arrancar,
-            puedes usar el email y el teléfono directamente.
-          </p>
+        <div class="about-cta">
+          <a href="/quienes-somos" class="btn btn-light">Conócenos mejor</a>
+        </div>
+      </div>
+    </section>
 
-          <a class="btn btn-dark full" href="mailto:marta@maudesarquitectura.es?subject=Consulta%20desde%20la%20web%20de%20Maudes%20Arquitectura">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 9: RECURSOS - Artículos útiles
+         Contenido: links a artículos (coste, terreno)
+         Layout: 2 columnas o apilado
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-resources">
+      <div class="container">
+        <h2 class="section-title">Recursos útiles</h2>
+        
+        <div class="resources-grid">
+          <article class="resource-card">
+            <h3>¿Cuánto cuesta construir una casa?</h3>
+            <p>
+              Rangos de precio orientativos y qué factores influyen en el coste final de tu proyecto.
+            </p>
+            <a href="/cuanto-cuesta-construir-una-casa" class="card-link">
+              Leer artículo →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <h3>Qué tener en cuenta al comprar terreno</h3>
+            <p>
+              Guía práctica para evaluar parcelas antes de tomar la decisión de compra.
+            </p>
+            <a href="/comprar-terreno-construir-casa" class="card-link">
+              Leer artículo →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 10: CONTACTO
+         Contenido: email, teléfono, zona
+         Layout: limpio, centrado
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-contact" id="contacto">
+      <div class="container-narrow">
+        <p class="eyebrow">Contacto</p>
+        <h2 class="section-title">Cuéntanos tu proyecto</h2>
+        <p class="text-center">
+          Una primera conversación sencilla suele ahorrar muchos problemas después.
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:marta@maudesarquitectura.es" class="contact-value">
+              marta@maudesarquitectura.es
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Teléfono</span>
+            <a href="tel:+34660013883" class="contact-value">
+              660 013 883
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Zona</span>
+            <span class="contact-value">
+              Madrid y otros proyectos a consultar
+            </span>
+          </div>
+        </div>
+
+        <div class="contact-cta">
+          <a class="btn btn-dark" href="mailto:marta@maudesarquitectura.es?subject=Consulta%20desde%20la%20web%20de%20Maudes%20Arquitectura">
             Enviar email
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding: 32px 0; background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04);">
-      <div class="container">
-        <p style="margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 58ch;">
-          Si estás valorando construir una casa, puedes consultar nuestro artículo sobre <a href="/cuanto-cuesta-construir-una-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">cuánto cuesta construir una casa en España</a> con rangos de precio orientativos y qué factores influyen en el coste final.
-        </p>
-        <p style="margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 58ch;">
-          Si estás buscando terreno o ya tienes uno en mente, lee antes <a href="/comprar-terreno-construir-casa" style="color: var(--text); font-weight: 900; text-decoration: none;">qué tener en cuenta antes de comprar un terreno para construir</a>.
-        </p>
-      </div>
-    </section>
-
-    <section class="section final-cta" style="background: var(--bg-alt); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
-      <div class="container">
-        <div class="section-head" style="text-align: center;">
-          <h2>Si tienes un terreno y no sabes por dónde empezar</h2>
-        </div>
-        <div style="margin-top: 28px; text-align: center;">
-          <button type="button" onclick="startPublicChat()" class="btn btn-dark">Diseñar mi casa</button>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 11: CTA FINAL
+         Contenido: mensaje final + botón chat
+         Layout: centrado, muy limpio
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-final-cta">
+      <div class="container-narrow">
+        <h2 class="section-title">Si tienes un terreno y no sabes por dónde empezar</h2>
+        <div class="block-cta">
+          <button type="button" class="btn btn-primary btn-ai-chat">
+            Diseñar mi casa con IA
+          </button>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2026 Maudes Arquitectura</div>
-      <div class="footer-links">
-        <a href="aviso-legal.html">Aviso legal</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="cookies.html">Cookies</a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-copy">© 2026 Maudes Arquitectura</div>
+        <div class="footer-links">
+          <a href="aviso-legal.html">Aviso legal</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    async function startPublicChat(leadData = null) {
-      try {
-        const res = await fetch('https://api.maudesarquitectura.es/api/public-intake/session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            tenantId: 'b490965c-41c3-4baf-807e-fbc06d7b86de',
-            leadData: leadData
-          })
-        });
-
-        const data = await res.json();
-
-        window.location.href =
-          'https://iarquitect.maudesarquitectura.es' + data.redirectUrl;
-
-      } catch (err) {
-        alert('No se ha podido iniciar la sesión. Inténtalo de nuevo.');
-      }
-    }
-  </script>
 </body>
 </html>
