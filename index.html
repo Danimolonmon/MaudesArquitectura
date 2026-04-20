@@ -23,6 +23,35 @@
   </script>
   <link rel="stylesheet" href="styles.css" />
   <script src="chat.js" defer></script>
+  
+  <!-- Schema.org markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Maudes Arquitectura",
+    "description": "Estudio de arquitectura especializado en vivienda unifamiliar, reformas integrales y asesoramiento técnico",
+    "url": "https://maudesarquitectura.es",
+    "telephone": "+34-660-013-883",
+    "email": "marta@maudesarquitectura.es",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES",
+      "addressRegion": "Madrid"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "España"
+    },
+    "priceRange": "$$",
+    "serviceType": [
+      "Arquitectura residencial",
+      "Proyecto de vivienda unifamiliar",
+      "Reforma integral",
+      "Asesoramiento técnico arquitectura"
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -140,7 +169,8 @@
             <h3>Vivienda unifamiliar</h3>
             <p>
               Te ayudamos a diseñar y construir tu casa desde cero,
-              analizando terreno, normativa y coste antes de tomar decisiones.
+              analizando terreno, normativa urbanística y coste antes de tomar decisiones.
+              Desarrollamos el proyecto arquitectónico completo con criterio de viabilidad real.
             </p>
             <a href="/arquitecto-vivienda-unifamiliar" class="card-link">
               Construir una casa desde cero →
@@ -153,6 +183,7 @@
             <p>
               Analizamos el estado de tu vivienda existente y definimos
               qué se puede reformar realmente antes de empezar la obra.
+              El proyecto incluye estudio de viabilidad y estimación de coste real.
             </p>
             <a href="/rehabilitacion-vivienda" class="card-link">
               Reformar una vivienda →
@@ -165,6 +196,7 @@
             <p>
               Estudios previos, análisis de viabilidad, documentación y
               acompañamiento para tomar decisiones con más seguridad.
+              Revisamos normativa urbanística y condiciones específicas de cada proyecto.
             </p>
           </article>
         </div>
@@ -188,6 +220,7 @@
             <p>
               Somos un estudio pequeño y de trato directo: arquitectura y tecnología trabajan
               juntas para decidir mejor y construir con menos incertidumbre.
+              Trabajamos desde Madrid y desarrollamos proyectos en distintos puntos de la península.
             </p>
           </div>
         </div>
@@ -290,7 +323,7 @@
           <div class="contact-item">
             <span class="contact-label">Zona</span>
             <span class="contact-value">
-              Toda la península
+              Proyectos en distintos puntos de la península, adaptados a normativa local
             </span>
           </div>
         </div>
@@ -316,6 +349,87 @@
             Diseñar mi casa con IA
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BLOQUE 12: INFORMACIÓN TÉCNICA Y FAQ (COLAPSADO)
+         Contenido: info técnica y preguntas frecuentes
+         Layout: acordeón discreto para SEO
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="block-info-seo">
+      <div class="container-narrow">
+        <details class="info-accordion">
+          <summary class="info-summary">
+            <h2>Información técnica</h2>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </summary>
+          
+          <div class="info-content">
+            <div class="info-section">
+              <h3>Qué hace un arquitecto en vivienda unifamiliar</h3>
+              <p>
+                El arquitecto coordina el proyecto arquitectónico desde el análisis inicial del terreno 
+                hasta la ejecución de obra. Estudia la normativa urbanística aplicable, define la 
+                viabilidad constructiva y desarrolla toda la documentación técnica necesaria para construir.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h3>Por qué analizar normativa antes de diseñar</h3>
+              <p>
+                Cada parcela tiene condiciones urbanísticas específicas que limitan superficie, altura, 
+                retranqueos y ocupación. Diseñar sin conocer estos límites supone desperdiciar tiempo 
+                en propuestas inviables. El análisis previo permite proyectar con garantías desde el inicio.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h3>Relación entre terreno, proyecto y coste</h3>
+              <p>
+                El coste de construir una vivienda depende de tres factores: características del terreno 
+                (ubicación, accesos, servicios), complejidad del proyecto arquitectónico y calidades constructivas. 
+                Un buen análisis previo permite estimar rangos realistas antes de tomar decisiones definitivas.
+              </p>
+            </div>
+
+            <div class="faq-section">
+              <h3>Preguntas frecuentes</h3>
+              
+              <details class="faq-item">
+                <summary>¿Cuánto cuesta construir una casa?</summary>
+                <p>
+                  Depende de ubicación, tamaño y calidades. En términos generales, oscila entre 
+                  1.200-2.000 €/m² construido. Un estudio inicial permite ajustar el rango a tu caso concreto.
+                </p>
+              </details>
+
+              <details class="faq-item">
+                <summary>¿Cuánto tarda un proyecto?</summary>
+                <p>
+                  El proyecto básico suele tardar 2-3 meses. El proyecto de ejecución otros 2-3 meses. 
+                  Las licencias pueden tardar entre 3-6 meses según el ayuntamiento.
+                </p>
+              </details>
+
+              <details class="faq-item">
+                <summary>¿Qué necesito antes de construir?</summary>
+                <p>
+                  Parcela escriturada, referencia catastral, cédula urbanística y presupuesto orientativo. 
+                  Con eso podemos hacer un estudio de viabilidad inicial.
+                </p>
+              </details>
+
+              <details class="faq-item">
+                <summary>¿Cómo saber si un terreno es edificable?</summary>
+                <p>
+                  Consultando el planeamiento urbanístico del municipio. Revisamos clasificación de suelo, 
+                  calificación y ordenanzas aplicables para confirmar si permite uso residencial.
+                </p>
+              </details>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
   </main>

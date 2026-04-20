@@ -770,6 +770,134 @@ img {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
+   BLOQUE 12: INFORMACIÓN TÉCNICA Y FAQ (COLAPSADO)
+═══════════════════════════════════════════════════════════════════════ */
+.block-info-seo {
+  padding: var(--spacing-section) 0;
+  background: var(--bg-alt);
+}
+
+.info-accordion {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.info-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 36px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.info-summary::-webkit-details-marker {
+  display: none;
+}
+
+.info-summary:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.info-summary h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.accordion-icon {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.info-accordion[open] .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.info-content {
+  padding: 0 36px 36px;
+  border-top: 1px solid var(--line);
+  margin-top: -1px;
+}
+
+.info-section {
+  margin-top: var(--spacing-medium);
+}
+
+.info-section h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.info-section p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.faq-section {
+  margin-top: var(--spacing-large);
+  padding-top: var(--spacing-medium);
+  border-top: 1px solid var(--line);
+}
+
+.faq-section h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-small);
+}
+
+.faq-item {
+  margin-top: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 8px 0;
+  list-style: none;
+  user-select: none;
+  color: var(--text);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: '▸';
+  display: inline-block;
+  width: 1.2em;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════════════════════════════ */
 .site-footer {

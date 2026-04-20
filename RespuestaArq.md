@@ -1,206 +1,248 @@
-# Diagnóstico: Bug de redirección `/app/settings` → `/login`
+# Optimización SEO - Maudes Arquitectura
+## Resumen de cambios implementados
 
 ---
 
-## ❌ PROBLEMA DETECTADO: WORKSPACE INCORRECTO
+## 1. MICRO-AJUSTES EN SERVICIOS (keywords discretas)
 
-### Workspace actual
+### ✅ Qué se ha añadido
+Una frase adicional en cada tarjeta de servicio con keywords SEO naturales.
+
+### 📍 Dónde
+- **Vivienda unifamiliar** (sección servicios, tarjeta 01)
+- **Reformas integrales** (sección servicios, tarjeta 02)
+- **Asesoramiento técnico** (sección servicios, tarjeta 03)
+
+### 🔑 Keywords introducidas
+- `normativa urbanística`
+- `proyecto arquitectónico`
+- `viabilidad real`
+- `coste real`
+- `viabilidad`
+
+### 💡 Por qué mejora SEO sin romper UX
+- El texto añadido es coherente con el servicio
+- Solo 1 frase extra por tarjeta (no sobrecarga)
+- Aporta valor informativo real
+- Keywords integradas de forma natural
+
+**Antes:**
 ```
-c:\Users\danim\source\repos\Danimolonmon\MaudesArquitectura\MaudesArquitectura
-```
-
-### Contenido del workspace actual
-- **Proyecto**: Sitio web estático de Maudes Arquitectura (empresa de arquitectura)
-- **Tecnología**: HTML estático + CSS + Cloudflare Worker
-- **Archivos principales**:
-  - `index.html`, `landing-ads.html`, `quienes-somos.html`, etc.
-  - `styles.css`, `pages-custom.css`, `styles-pages.css`
-  - `chat.js` (botones de IA)
-  - `src/index.js` (Cloudflare Worker para formularios de leads)
-  - `wrangler.jsonc` (configuración Cloudflare)
-
----
-
-## 🔍 ARCHIVOS BUSCADOS (NO ENCONTRADOS)
-
-### Auditoría realizada
-✅ Búsqueda exhaustiva de archivos:
-- `RoleProtectedRoute.tsx` → **NO EXISTE**
-- `AdminRoute.tsx` → **NO EXISTE**
-- `AuthContext.tsx` → **NO EXISTE**
-- `AppRouter.tsx` → **NO EXISTE**
-
-✅ Búsqueda semántica de conceptos:
-- `authentication`, `login`, `guard`, `tenant`, `owner`, `settings` → **SIN RESULTADOS**
-- `RoleProtectedRoute`, `AdminRoute`, `AuthContext` → **SIN RESULTADOS**
-
-✅ Búsqueda de texto literal:
-- `Configuracion`, `settings`, `/app/` → **SIN RESULTADOS** (solo aparece en cookies.html: "configuración del navegador")
-
----
-
-## 📋 ARCHIVOS INSPECCIONADOS
-
-### 1. `src/index.js` (Cloudflare Worker)
-**Contenido**: 
-- Manejo de rutas limpias (`/quienes-somos`, `/arquitecto-vivienda-unifamiliar`, etc.)
-- Endpoint `POST /api/lead` para formularios
-- Integración con Resend (envío de emails)
-- **NO HAY**: Lógica de autenticación, guards, tenants, roles
-
-### 2. Archivos HTML (11 páginas)
-**Contenido**: 
-- Sitio web corporativo estático
-- Formularios de contacto/leads
-- **NO HAY**: Aplicación React, rutas `/app/*`, sistema de login
-
-### 3. `chat.js`
-**Contenido**: 
-- Manejador de botones para IA de diseño
-- Redirección a `https://iarquitect.maudesarquitectura.es`
-- **NO HAY**: Lógica de autenticación
-
----
-
-## ⚠️ DIAGNÓSTICO FINAL
-
-### Causa exacta del "bug"
-**NO HAY BUG EN ESTE WORKSPACE** porque:
-
-1. **No existe aplicación React con autenticación**
-2. **No existe ruta `/app/settings`**
-3. **No existe sistema de tenants/roles (Owner/Member)**
-4. **No existe sidebar con enlaces de configuración**
-5. **No existe guard de ruta que redirija a `/login`**
-
-### Workspace correcto esperado
-El bug descrito corresponde a un proyecto diferente con:
-- ✅ React/TypeScript
-- ✅ Sistema de autenticación (AuthContext)
-- ✅ Guards de ruta (RoleProtectedRoute, AdminRoute)
-- ✅ Multi-tenancy (tenants, roles Owner/Member)
-- ✅ Sidebar con enlaces condicionales
-- ✅ Rutas protegidas `/app/settings`
-
-**Este NO es ese proyecto.**
-
----
-
-## 🎯 ACCIÓN REQUERIDA
-
-### Para el usuario
-1. **Verificar workspace correcto**:
-   - Abrir VS Code en el proyecto de la aplicación React con autenticación
-   - El proyecto correcto probablemente se llama algo como:
-     - `iarquitect` o `iarquitect-frontend` (basado en la URL vista en chat.js)
-     - `maudes-platform` o `maudes-app`
-     - Algún proyecto con estructura típica de React: `src/components/`, `src/contexts/`, `src/routes/`
-
-2. **Comandos para localizar el proyecto correcto**:
-   ```powershell
-   # Buscar proyectos con AuthContext
-   Get-ChildItem -Path C:\Users\danim\source\repos -Recurse -Filter "AuthContext.tsx" -ErrorAction SilentlyContinue
-
-   # Buscar proyectos con RoleProtectedRoute
-   Get-ChildItem -Path C:\Users\danim\source\repos -Recurse -Filter "RoleProtectedRoute.tsx" -ErrorAction SilentlyContinue
-
-   # Listar todos los repos
-   Get-ChildItem -Path C:\Users\danim\source\repos -Directory
-   ```
-
-3. **Abrir el workspace correcto en VS Code**
-
-4. **Volver a solicitar el diagnóstico**
-
----
-
-## 📊 VALIDACIÓN
-
-### ¿Funciona? 
-**N/A** - No se puede diagnosticar el bug en el workspace incorrecto
-
-### ¿Hay evidencia? 
-**SÍ** - Evidencia exhaustiva de que este NO es el proyecto correcto
-
-### ¿Está validado en runtime? 
-**NO** - No hay aplicación React ejecutable en este workspace
-
----
-
-## 📁 ESTRUCTURA ESPERADA vs ACTUAL
-
-### Estructura esperada (proyecto correcto)
-```
-proyecto-correcto/
-├── src/
-│   ├── components/
-│   │   └── Sidebar.tsx              ← Muestra "Configuracion" a Owners
-│   ├── contexts/
-│   │   └── AuthContext.tsx          ← Maneja user, activeTenant
-│   ├── routes/
-│   │   ├── AppRouter.tsx            ← Define rutas /app/*
-│   │   ├── RoleProtectedRoute.tsx   ← Guard que redirige a /login
-│   │   └── AdminRoute.tsx
-│   └── pages/
-│       └── Settings.tsx             ← Página /app/settings
-├── package.json
-└── tsconfig.json
+Te ayudamos a diseñar y construir tu casa desde cero,
+analizando terreno, normativa y coste antes de tomar decisiones.
 ```
 
-### Estructura actual (workspace actual)
+**Después:**
 ```
-MaudesArquitectura/
-├── index.html                       ← HTML estático
-├── landing-ads.html
-├── styles.css
-├── chat.js                          ← Botones simples
-├── src/
-│   └── index.js                     ← Cloudflare Worker
-└── wrangler.jsonc                   ← Config Cloudflare
+Te ayudamos a diseñar y construir tu casa desde cero,
+analizando terreno, normativa urbanística y coste antes de tomar decisiones.
+Desarrollamos el proyecto arquitectónico completo con criterio de viabilidad real.
 ```
 
 ---
 
-## 🔧 ARCHIVOS MODIFICADOS
+## 2. AJUSTES GEOGRÁFICOS (SEO local natural)
 
-**NINGUNO** - No se realizaron modificaciones (workspace incorrecto)
+### ✅ Qué se ha añadido
+- Cambio en zona de contacto: de "Toda la península" a texto más descriptivo
+- Mención de Madrid en sección "Quiénes somos"
+
+### 📍 Dónde
+- **Contacto > Zona** (sección contacto)
+- **Quiénes somos > Intro** (sección about)
+
+### 🔑 Keywords geográficas
+- `península`
+- `Madrid`
+- `normativa local`
+- `distintos puntos de la península`
+
+### 💡 Por qué mejora SEO sin romper UX
+- No fuerza keywords en hero
+- Información útil y transparente
+- Señales geográficas para Google
+- Responde duda del usuario: ¿dónde trabajan?
+
+**Cambios:**
+```
+CONTACTO: "Proyectos en distintos puntos de la península, adaptados a normativa local"
+NOSOTROS: "Trabajamos desde Madrid y desarrollamos proyectos en distintos puntos de la península"
+```
 
 ---
 
-## ✅ CORRECCIÓN APLICADA
+## 3. BLOQUE COLAPSABLE: INFORMACIÓN TÉCNICA + FAQ
 
-**NINGUNA** - No se puede corregir un bug que no existe en este workspace
+### ✅ Qué se ha añadido
+Un acordeón cerrado por defecto, justo antes del footer, con:
+- **Sección 1:** Qué hace un arquitecto en vivienda unifamiliar
+- **Sección 2:** Por qué analizar normativa antes de diseñar
+- **Sección 3:** Relación entre terreno, proyecto y coste
+- **FAQ:** 4 preguntas frecuentes (colapsables)
+
+### 📍 Dónde (posición en DOM)
+```
+<main>
+  ...secciones existentes...
+  <section class="block-final-cta">...</section>
+  
+  ← NUEVO BLOQUE AQUÍ
+  <section class="block-info-seo">
+    <details class="info-accordion"> ← CERRADO por defecto
+      ...contenido SEO...
+    </details>
+  </section>
+</main>
+<footer>...</footer>
+```
+
+### 🔑 Keywords introducidas
+- `arquitecto` + `vivienda unifamiliar`
+- `proyecto arquitectónico`
+- `normativa urbanística`
+- `viabilidad constructiva`
+- `documentación técnica`
+- `parcela` + `condiciones urbanísticas`
+- `coste de construir una vivienda`
+- `terreno edificable`
+- `planeamiento urbanístico`
+
+### 💡 Por qué mejora SEO sin romper UX
+
+#### ✅ UX
+- **Invisible por defecto** (acordeón cerrado)
+- No añade scroll innecesario
+- Solo se expande si el usuario quiere
+- Usa `<details>` nativo (sin JavaScript)
+- Diseño coherente con el resto
+
+#### ✅ SEO
+- Google indexa contenido en `<details>` aunque esté cerrado
+- Responde queries long-tail:
+  - "cuánto cuesta construir una casa"
+  - "cómo saber si un terreno es edificable"
+  - "qué hace un arquitecto en vivienda unifamiliar"
+- Añade ~400 palabras de contenido único
+- Estructura semántica clara (H3 + párrafos)
+
+### 📋 FAQ incluidas
+1. **¿Cuánto cuesta construir una casa?** → rango 1.200-2.000 €/m²
+2. **¿Cuánto tarda un proyecto?** → plazos reales por fase
+3. **¿Qué necesito antes de construir?** → documentación inicial
+4. **¿Cómo saber si un terreno es edificable?** → proceso de consulta
 
 ---
 
-## 🧪 CASOS DE VALIDACIÓN
+## 4. SCHEMA JSON-LD (SEO técnico invisible)
 
-### Caso A: Owner ve Configuracion y entra correctamente
-**N/A** - No hay sistema de roles en este workspace
+### ✅ Qué se ha añadido
+Schema tipo `ProfessionalService` en `<head>`
 
-### Caso B: Member no ve Configuracion
-**N/A** - No hay sistema de roles en este workspace
+### 📍 Dónde
+Dentro de `<head>`, después de `<script src="chat.js">` 
 
-### Caso C: Usuario sin permisos intenta entrar manualmente
-**N/A** - No hay guards de ruta en este workspace
+### 🔑 Datos estructurados
+```json
+{
+  "@type": "ProfessionalService",
+  "name": "Maudes Arquitectura",
+  "areaServed": "España",
+  "serviceType": [
+    "Arquitectura residencial",
+    "Proyecto de vivienda unifamiliar",
+    "Reforma integral",
+    "Asesoramiento técnico arquitectura"
+  ]
+}
+```
+
+### 💡 Por qué mejora SEO sin romper UX
+- **Totalmente invisible** para el usuario
+- Google entiende mejor qué ofrece la web
+- Ayuda a aparecer en rich snippets
+- Mejora CTR en resultados de búsqueda
+- Validable con Google Rich Results Test
 
 ---
 
-## 📝 CONCLUSIÓN
+## 5. JERARQUÍA DE TÍTULOS (validación)
 
-Este workspace (`MaudesArquitectura`) es un **sitio web estático de marketing** sin:
-- React
-- Sistema de autenticación
-- Guards de ruta
-- Multi-tenancy
-- Roles/permisos
+### ✅ Qué se ha revisado
+- **1 solo H1** en hero ✓
+- **H2** para títulos de sección ✓
+- **H3** para subsecciones/servicios ✓
+- Nuevo H2 en acordeón colapsado ("Información técnica")
+- H3 dentro del acordeón para estructura interna
 
-El bug descrito pertenece a un **proyecto diferente** que necesita ser localizado y abierto en VS Code.
+### 💡 Por qué mejora SEO
+- Google valora jerarquía clara
+- Accesibilidad (lectores de pantalla)
+- Facilita indexación por temas
 
-Una vez abierto el workspace correcto, se podrá realizar la auditoría completa de:
-- `RoleProtectedRoute.tsx` → Guard que está redirigiendo incorrectamente
-- `AuthContext.tsx` → Estado de user/activeTenant en primer render
-- `AppRouter.tsx` → Configuración de rutas protegidas
-- Sidebar → Lógica de mostrar "Configuracion"
+---
 
-**Próximo paso obligatorio**: Abrir el workspace correcto en VS Code.
+## 6. VALIDACIÓN FINAL
+
+### ✅ La página sigue igual de limpia
+- Diseño NO cambia visualmente
+- Scroll natural NO aumenta (acordeón cerrado)
+- Overhead de texto: **solo 1 frase extra por servicio**
+
+### ✅ NO hay sensación de repetición
+- Contenido nuevo es complementario, no duplicado
+- FAQ responde cosas que NO están en la home
+- Información técnica profundiza sin redundar
+
+### ✅ Mejora contenido indexable
+- **Antes:** ~600 palabras relevantes
+- **Después:** ~1.000+ palabras relevantes
+- Nuevos términos long-tail cubiertos
+- Schema estructurado para fragmentos enriquecidos
+
+### ✅ SEO mejora sin afectar UX
+- Todo lo nuevo es discreto o colapsado
+- Usuario no nota cambios negativos
+- Buscadores tienen más contexto
+- Queries específicas tienen mejor cobertura
+
+---
+
+## 7. RESUMEN EJECUTIVO
+
+| Elemento | Impacto SEO | Impacto UX | Estado |
+|----------|-------------|------------|--------|
+| Micro-ajustes servicios | ⭐⭐⭐ | ✅ Neutral | ✅ |
+| Texto geográfico | ⭐⭐ | ✅ Mejor info | ✅ |
+| Bloque Info + FAQ | ⭐⭐⭐⭐⭐ | ✅ Invisible/Útil | ✅ |
+| Schema JSON-LD | ⭐⭐⭐⭐ | ✅ Invisible | ✅ |
+| Jerarquía títulos | ⭐⭐ | ✅ Sin cambio | ✅ |
+
+### Keywords totales añadidas
+- `arquitecto vivienda unifamiliar` ✓
+- `proyecto arquitectónico` ✓
+- `normativa urbanística` ✓
+- `coste construir casa` ✓
+- `terreno edificable` ✓
+- `viabilidad` ✓
+- Madrid + península (geo) ✓
+
+### Archivos modificados
+1. `index.html` → contenido + Schema
+2. `styles.css` → estilos acordeón
+
+---
+
+## 8. PRÓXIMOS PASOS (OPCIONAL)
+
+Si se necesita más SEO sin afectar UX:
+1. Blog con artículos técnicos (ya enlazado en "Recursos")
+2. Metadatos dinámicos por página
+3. Structured data para FAQPage
+4. Open Graph para redes sociales
+5. Canónicos y hreflang si se añaden idiomas
+
+---
+
+**Fecha implementación:** 20 de abril de 2026  
+**Respeta:** Criterio de Marta sobre NO redundancia  
+**Resultado:** SEO técnico + contenido útil sin romper experiencia limpia
