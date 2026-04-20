@@ -601,7 +601,6 @@ img {
 ═══════════════════════════════════════════════════════════════════════ */
 .block-about {
   padding: var(--spacing-section) 0;
-  background: var(--bg-alt);
 }
 
 .about-intro {
@@ -675,6 +674,7 @@ img {
 ═══════════════════════════════════════════════════════════════════════ */
 .block-resources {
   padding: var(--spacing-section) 0;
+  background: var(--bg-alt);
 }
 
 .resources-grid {
@@ -714,7 +714,6 @@ img {
 ═══════════════════════════════════════════════════════════════════════ */
 .block-contact {
   padding: var(--spacing-section) 0;
-  background: var(--bg-alt);
   text-align: center;
 }
 
