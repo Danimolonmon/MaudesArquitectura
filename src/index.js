@@ -20,6 +20,14 @@ export default {
       return env.ASSETS.fetch(new Request(new URL('/quienes-somos.html', request.url), request));
     }
 
+    if (url.pathname === '/privacidad') {
+      return env.ASSETS.fetch(new Request(new URL('/privacidad.html', request.url), request));
+    }
+
+    if (url.pathname === '/landing-ads' || url.pathname === '/landing-ads.html') {
+      return serveLandingAds(request, env);
+    }
+
     // Alias de URL limpia para landing SEO vivienda unifamiliar
     if (url.pathname === '/arquitecto-vivienda-unifamiliar') {
       return env.ASSETS.fetch(new Request(new URL('/arquitecto-vivienda-unifamiliar.html', request.url), request));
@@ -50,6 +58,26 @@ export default {
   },
 };
 
+async function serveLandingAds(request, env) {
+  const assetRequest = new Request(new URL('/landing-ads.html', request.url), request);
+  const response = await env.ASSETS.fetch(assetRequest);
+
+  if (!response.ok) {
+    return response;
+  }
+
+  const html = await response.text();
+  const siteKey = env.TURNSTILE_SITE_KEY || '';
+
+  return new Response(html.replace('__TURNSTILE_SITE_KEY__', escAttr(siteKey)), {
+    status: response.status,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store',
+    },
+  });
+}
+
 // ── handleLead ───────────────────────────────────────────────────────────────
 
 async function handleLead(request, env) {
@@ -66,13 +94,19 @@ async function handleLead(request, env) {
   const m2_parcela    = (formData.get('m2_parcela')    || '').trim();
   const plazo         = (formData.get('plazo')         || '').trim();
   const email         = (formData.get('email')         || '').trim();
+  const nombre        = (formData.get('nombre')        || '').trim();
   const telefono      = (formData.get('telefono')      || '').trim();
-  const contacto_inmediato = formData.get('contacto_inmediato') === 'si' ? 'Sí' : 'No';
+  const privacidad    = formData.get('privacidad') === 'aceptada';
+  const turnstileToken = (formData.get('cf-turnstile-response') || '').toString();
   const comentarios = (formData.get('comentarios') || '').toString().trim();
 
   // 2. Validar campos obligatorios
   if (!tiene_terreno || !ubicacion || !plazo || !email) {
     return new Response('Faltan campos obligatorios.', { status: 400 });
+  }
+
+  if (!privacidad) {
+    return new Response('Debes aceptar la politica de privacidad.', { status: 400 });
   }
 
   // Solo aceptamos leads que tienen terreno
@@ -83,6 +117,16 @@ async function handleLead(request, env) {
   // Validación básica de email
   if (!email.includes('@') || !email.includes('.')) {
     return new Response('El email no tiene un formato válido.', { status: 400 });
+  }
+
+  if (!env.TURNSTILE_SECRET_KEY) {
+    console.error('Falta secret: TURNSTILE_SECRET_KEY');
+    return new Response('Error de configuracion del servidor.', { status: 500 });
+  }
+
+  const turnstileOk = await verifyTurnstile(turnstileToken, env.TURNSTILE_SECRET_KEY, request);
+  if (!turnstileOk) {
+    return new Response('No se pudo validar la proteccion anti-spam.', { status: 400 });
   }
 
   // 3. Comprobar variables de entorno
@@ -101,6 +145,7 @@ async function handleLead(request, env) {
   const plazoLabel = { 'ya': 'Ya (inmediato)', '3-6m': '3–6 meses', '6-12m': '6–12 meses' }[plazo] || plazo;
 
   // Normalizar opcionales: null/undefined/vacío → "No indicado"
+  const safe_nombre   = nombre     || 'No indicado';
   const safe_m2       = m2_parcela || 'No indicado';
   const safe_telefono = telefono   || 'No indicado';
   const safe_comentarios = comentarios || 'No indicado';
@@ -112,9 +157,10 @@ async function handleLead(request, env) {
     '<p><strong>Ubicaci&oacute;n:</strong> ' + esc(ubicacion) + '</p>',
     '<p><strong>M&sup2; parcela:</strong> ' + esc(safe_m2) + '</p>',
     '<p><strong>Plazo:</strong> ' + esc(plazoLabel) + '</p>',
+    '<p><strong>Nombre:</strong> ' + esc(safe_nombre) + '</p>',
     '<p><strong>Email:</strong> ' + esc(email) + '</p>',
     '<p><strong>Tel&eacute;fono:</strong> ' + esc(safe_telefono) + '</p>',
-    '<p><strong>Contacto inmediato:</strong> ' + esc(contacto_inmediato) + '</p>',
+    '<p><strong>Privacidad:</strong> Aceptada</p>',
     '<p><strong>Comentarios:</strong> ' + esc(safe_comentarios) + '</p>',
   ].join('\n');
 
@@ -156,6 +202,37 @@ async function handleLead(request, env) {
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
+
+async function verifyTurnstile(token, secret, request) {
+  if (!token) {
+    return false;
+  }
+
+  const remoteIp = request.headers.get('CF-Connecting-IP') || '';
+  const body = new FormData();
+  body.append('secret', secret);
+  body.append('response', token);
+
+  if (remoteIp) {
+    body.append('remoteip', remoteIp);
+  }
+
+  try {
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body,
+    });
+    const result = await response.json();
+    return Boolean(result.success);
+  } catch (err) {
+    console.error('Error validando Turnstile:', err);
+    return false;
+  }
+}
+
+function escAttr(value) {
+  return String(value ?? '').replace(/"/g, '&quot;');
+}
 
 /** Escapa caracteres HTML para evitar inyección en el cuerpo del email */
 function esc(value) {

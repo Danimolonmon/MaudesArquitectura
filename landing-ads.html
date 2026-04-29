@@ -19,6 +19,7 @@
     gtag('js', new Date());
     gtag('config', 'AW-18038177600');
   </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <link rel="stylesheet" href="styles-pages.css" />
   <link rel="stylesheet" href="pages-custom.css" />
 </head>
@@ -152,6 +153,17 @@
             </div>
 
             <div class="form-field">
+              <label for="nombre">Nombre (opcional)</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-field">
               <label for="telefono">Teléfono (opcional)</label>
               <input
                 type="tel"
@@ -160,13 +172,6 @@
                 placeholder="Ej. 600 000 000"
                 autocomplete="tel"
               />
-            </div>
-
-            <div class="form-group">
-              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-                <input type="checkbox" name="contacto_inmediato" value="si">
-                <span>Puedes contactarme lo antes posible (incluidos festivos)</span>
-              </label>
             </div>
 
             <div class="form-group">
@@ -179,9 +184,28 @@
               ></textarea>
             </div>
 
+            <div class="form-check">
+              <input type="checkbox" id="privacidad" name="privacidad" value="aceptada" required>
+              <label for="privacidad">
+                He leído y acepto la <a href="/privacidad" target="_blank" rel="noopener">política de privacidad</a>
+              </label>
+            </div>
+
+            <div class="turnstile-wrap">
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAADFokOu6ozuvzaz1"
+                data-appearance="interaction-only"
+              ></div>
+            </div>
+
             <button type="submit" class="btn-form-submit">
               Ver opciones para mi terreno
             </button>
+
+            <p class="form-legal">
+              Usaremos tus datos para responder a tu solicitud y, si procede, preparar una propuesta. Puedes ejercer tus derechos en cualquier momento.
+            </p>
 
             <p class="form-trust">No vendemos casas. Evaluamos tu caso real.</p>
 
@@ -285,15 +309,29 @@
       var submit = document.querySelector('#lead-form .btn-form-submit');
       var msg    = document.getElementById('no-terreno-msg');
 
-      form.addEventListener('submit', function () {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          form.reportValidity();
+          return;
+        }
+
+        var turnstileResponse = form.elements['cf-turnstile-response'];
+        if (window.turnstile && (!turnstileResponse || !turnstileResponse.value)) {
+          event.preventDefault();
+          window.turnstile.reset();
+          return;
+        }
+
         var leadData = {
           tiene_terreno: form.elements.tiene_terreno ? form.elements.tiene_terreno.value : '',
           ubicacion: form.elements.ubicacion ? form.elements.ubicacion.value.trim() : '',
           m2_parcela: form.elements.m2_parcela ? form.elements.m2_parcela.value.trim() : '',
           plazo: form.elements.plazo ? form.elements.plazo.value : '',
           email: form.elements.email ? form.elements.email.value.trim() : '',
+          nombre: form.elements.nombre ? form.elements.nombre.value.trim() : '',
           telefono: form.elements.telefono ? form.elements.telefono.value.trim() : '',
-          contacto_inmediato: form.elements.contacto_inmediato && form.elements.contacto_inmediato.checked ? 'si' : 'no',
+          privacidad: form.elements.privacidad && form.elements.privacidad.checked ? 'aceptada' : '',
           comentarios: form.elements.comentarios ? form.elements.comentarios.value.trim() : ''
         };
 

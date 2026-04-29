@@ -1,3 +1,34 @@
+# Actualización RGPD landing ads - 29 de abril de 2026
+
+## 1. Cambios realizados
+- Se actualizó el formulario de `landing-ads.html` para recoger solo los datos necesarios y mantener una UX limpia.
+- Se reforzó la validación en cliente con `checkValidity()` y `reportValidity()` pese a que el formulario conserva `novalidate`.
+- Se actualizó `src/index.js` para validar en servidor el consentimiento RGPD y el token anti-spam antes de enviar el email.
+- Se añadió el alias `/privacidad` para que el enlace legal funcione con URL limpia.
+- Se ajustaron estilos en `pages-custom.css` para checkbox RGPD, texto legal corto y Turnstile sin bloques pesados.
+
+## 2. Campos añadidos/eliminados
+- Añadido: `nombre` opcional.
+- Mantenidos: `email` obligatorio, `telefono` opcional, `comentarios` opcional.
+- Eliminado: `contacto_inmediato`.
+- Se conserva el filtrado propio de la landing: terreno, ubicación, metros de parcela y plazo.
+
+## 3. Implementación RGPD
+- Checkbox obligatorio no premarcado: "He leído y acepto la política de privacidad".
+- El enlace apunta a `/privacidad`.
+- El Worker rechaza el envio si `privacidad` no llega como `aceptada`.
+- Debajo del botón se añadió el texto legal corto: "Usaremos tus datos para responder a tu solicitud y, si procede, preparar una propuesta. Puedes ejercer tus derechos en cualquier momento."
+
+## 4. Sistema anti-spam usado
+- Se integró Cloudflare Turnstile en el formulario.
+- El widget usa la site key pública de Turnstile directamente en el HTML para evitar fallos si la landing se sirve como asset estático.
+- El servidor valida `cf-turnstile-response` contra Cloudflare con `TURNSTILE_SECRET_KEY`.
+- Turnstile queda configurado con `data-appearance="interaction-only"` para mantener el formulario limpio y mostrarse solo si Cloudflare necesita interacción.
+- No se integro Google reCAPTCHA.
+- Configurado en `wrangler.jsonc`: `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY`.
+
+---
+
 # Optimización SEO - Maudes Arquitectura
 ## Resumen de cambios implementados
 

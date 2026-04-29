@@ -597,6 +597,43 @@
   border-color: var(--dark);
 }
 
+.form-check {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 9px;
+  align-items: start;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.form-check input {
+  width: 16px;
+  height: 16px;
+  margin: 1px 0 0;
+  accent-color: var(--dark);
+}
+
+.form-check a {
+  color: var(--text);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.turnstile-wrap {
+  min-height: 0;
+}
+
+.form-legal {
+  margin: -2px 0 0;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .form-field input:focus,
 .form-field select:focus {
   border-color: var(--dark);
