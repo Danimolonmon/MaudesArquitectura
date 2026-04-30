@@ -49,22 +49,22 @@
   <main>
 
     <!-- HERO ─────────────────────────────────────────────────────────── -->
-    <section class="ads-hero" id="inicio">
-      <div class="container ads-hero-inner">
+    <section class="campaign-hero" id="inicio">
+      <div class="container campaign-hero-inner">
 
         <!-- Columna izquierda: copy + filtro + CTA -->
-        <div class="ads-hero-copy">
+        <div class="campaign-hero-copy">
           <p class="eyebrow">Vivienda unifamiliar · Obra nueva</p>
 
-          <h1 class="ads-hero h1">¿Tienes terreno? Diseñamos tu vivienda desde cero.</h1>
+          <h1 class="campaign-hero h1">¿Tienes terreno? Diseñamos tu vivienda desde cero.</h1>
 
-          <p class="ads-hero-sub">
+          <p class="campaign-hero-sub">
             Solo para personas que ya tienen terreno.
           </p>
-          <p class="ads-hero-disqualifier">
+          <p class="campaign-hero-disqualifier">
             Si estás buscando parcela, esta página no te va a servir todavía.
           </p>
-          <p class="ads-hero-disqualifier" style="border-left-color: rgba(31,30,26,0.10); color: var(--text); font-weight:300;">
+          <p class="campaign-hero-disqualifier" style="border-left-color: rgba(31,30,26,0.10); color: var(--text); font-weight:300;">
             Si tienes terreno, puedes comprobar en 1 minuto si tu caso encaja.
           </p>
 
@@ -88,12 +88,14 @@
 
         </div>
 
-        <!-- Columna derecha: formulario sticky -->
-        <div class="ads-form-card" id="formulario">
-          <h3>Comprueba si tu terreno encaja</h3>
-          <p>Respuesta rápida. Evaluamos tu caso real, no una estimación genérica.</p>
+        <div class="campaign-container">
+          <div class="campaign-left">
+            <!-- Columna derecha: formulario sticky -->
+            <div class="campaign-form-card" id="formulario">
+              <h3>Comprueba si tu terreno encaja</h3>
+              <p>Respuesta rápida. Evaluamos tu caso real, no una estimación genérica.</p>
 
-          <form class="lead-form" id="lead-form" action="/api/lead" method="post" novalidate>
+              <form class="lead-form" id="lead-form" action="/api/lead" method="post" novalidate>
 
             <div class="form-field">
               <label for="tiene_terreno">¿Tienes terreno?</label>
@@ -174,7 +176,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div class="form-group form-field-full">
               <label for="comentarios">¿Quieres añadir algún detalle? (opcional)</label>
               <textarea
                 id="comentarios"
@@ -184,7 +186,7 @@
               ></textarea>
             </div>
 
-            <div class="form-check">
+            <div class="form-check form-check-privacy">
               <input type="checkbox" id="privacidad" name="privacidad" value="aceptada" required>
               <label for="privacidad">
                 He leído y acepto la <a href="/privacidad" target="_blank" rel="noopener">política de privacidad</a>
@@ -199,27 +201,47 @@
               ></div>
             </div>
 
-            <button type="submit" class="btn-form-submit">
+            <button type="submit" class="btn-form-submit form-submit-full">
               Ver opciones para mi terreno
             </button>
 
-            <p class="form-legal">
+            <p class="form-legal form-field-full">
               Usaremos tus datos para responder a tu solicitud y, si procede, preparar una propuesta. Puedes ejercer tus derechos en cualquier momento.
             </p>
 
-            <p class="form-trust">No vendemos casas. Evaluamos tu caso real.</p>
+            <p class="form-trust form-field-full">No vendemos casas. Evaluamos tu caso real.</p>
 
-          </form>
+              </form>
+            </div>
+          </div>
+
+          <div class="campaign-right">
+            <div class="ia-panel">
+              <div class="ia-panel-content">
+                <p class="ia-kicker">Camino rápido</p>
+                <h3>Empieza tu proyecto con IA</h3>
+                <p>Cuéntanos tu parcela y la vivienda que imaginas. Nuestra IA te guía paso a paso para ordenar requisitos antes de hablar con el estudio.</p>
+
+                <ul class="ia-benefits">
+                  <li>Orientación inicial en minutos</li>
+                  <li>Sin compromiso</li>
+                  <li>Pensado para vivienda en parcela propia</li>
+                </ul>
+
+                <button type="button" id="btn-ia">Empezar con IA</button>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- EXPLICACIÓN ─────────────────────────────────────────────────── -->
-    <section class="ads-section">
+    <section class="campaign-section">
       <div class="container">
         <p class="eyebrow">Qué hacemos</p>
-        <div class="ads-text-block">
+        <div class="campaign-text-block">
           <p><strong>Diseñamos tu vivienda desde el terreno.</strong></p>
           <p>
             Analizamos tu parcela, normativa y necesidades
@@ -234,29 +256,29 @@
     </section>
 
     <!-- PROCESO ─────────────────────────────────────────────────────── -->
-    <section class="ads-section ads-section-alt">
+    <section class="campaign-section campaign-section-alt">
       <div class="container">
         <p class="eyebrow">Proceso</p>
         <h2 style="margin:0 0 4px; font-size: clamp(1.8rem,3vw,2.8rem); font-weight:900; letter-spacing:-0.05em;">Claro de principio a fin.</h2>
 
-        <div class="ads-steps">
-          <div class="ads-step">
-            <span class="ads-step-num">01</span>
+        <div class="campaign-steps">
+          <div class="campaign-step">
+            <span class="campaign-step-num">01</span>
             <h3>Analizamos tu terreno</h3>
             <p>Normativa, orientación y viabilidad real antes de empezar.</p>
           </div>
-          <div class="ads-step">
-            <span class="ads-step-num">02</span>
+          <div class="campaign-step">
+            <span class="campaign-step-num">02</span>
             <h3>Definimos propuesta viable</h3>
             <p>Una solución coherente con el lugar, el uso y el coste.</p>
           </div>
-          <div class="ads-step">
-            <span class="ads-step-num">03</span>
+          <div class="campaign-step">
+            <span class="campaign-step-num">03</span>
             <h3>Desarrollamos el proyecto</h3>
             <p>Documentación técnica precisa y ejecutable.</p>
           </div>
-          <div class="ads-step">
-            <span class="ads-step-num">04</span>
+          <div class="campaign-step">
+            <span class="campaign-step-num">04</span>
             <h3>Te acompañamos en el proceso</h3>
             <p>Seguimiento para proteger la calidad e intención del proyecto.</p>
           </div>
@@ -265,17 +287,17 @@
     </section>
 
     <!-- DIFERENCIACIÓN ──────────────────────────────────────────────── -->
-    <section class="ads-section">
+    <section class="campaign-section">
       <div class="container">
         <p class="eyebrow">Por qué Maudes</p>
 
-        <div class="ads-diff">
-          <p class="ads-diff-line">No es <strong>una promotora.</strong></p>
-          <p class="ads-diff-line">No es <strong>una constructora tradicional.</strong></p>
-          <p class="ads-diff-line">No es <strong>un catálogo cerrado.</strong></p>
+        <div class="campaign-diff">
+          <p class="campaign-diff-line">No es <strong>una promotora.</strong></p>
+          <p class="campaign-diff-line">No es <strong>una constructora tradicional.</strong></p>
+          <p class="campaign-diff-line">No es <strong>un catálogo cerrado.</strong></p>
         </div>
 
-        <p class="ads-diff-conclusion">
+        <p class="campaign-diff-conclusion">
           Es arquitectura aplicada a tu caso real.
           Tu parcela, tu programa, tu presupuesto.
         </p>
@@ -285,9 +307,9 @@
   </main>
 
   <!-- FOOTER MÍNIMO ───────────────────────────────────────────────── -->
-  <footer class="ads-footer">
-    <div class="container ads-footer-inner">
-      <span class="ads-footer-copy">© 2026 Maudes Arquitectura</span>
+  <footer class="campaign-footer">
+    <div class="container campaign-footer-inner">
+      <span class="campaign-footer-copy">© 2026 Maudes Arquitectura</span>
       <span>
         <a href="mailto:marta@maudesarquitectura.es">marta@maudesarquitectura.es</a>
         &nbsp;·&nbsp;
@@ -303,6 +325,292 @@
   </footer>
 
   <script>
+    window.MaudesArqSuiteIntakeConfig = {
+      tenantId: '46df1d61-7ffe-4469-8b42-b521eda04e8b',
+      buttonText: 'Empezar con IA',
+      primaryColor: '#1d1d1b',
+      appUrl: 'https://iarquitect.maudesarquitectura.es'
+    };
+
+    (function () {
+      var diagnostics = window.__MAUDES_LANDING_DIAGNOSTICS__ = window.__MAUDES_LANDING_DIAGNOSTICS__ || [];
+      var hadWindowConfig = Boolean(window._config);
+      window._config = window._config || window.MaudesArqSuiteIntakeConfig;
+
+      function record(step, detail) {
+        var entry = {
+          step: step,
+          detail: detail || null,
+          readyState: document.readyState,
+          time: new Date().toISOString()
+        };
+        diagnostics.push(entry);
+        console.log('[landing-ads]', step, detail || '');
+      }
+
+      window.addEventListener('error', function (event) {
+        console.error('[landing-ads] GLOBAL ERROR', {
+          message: event.message,
+          source: event.filename,
+          line: event.lineno,
+          column: event.colno,
+          error: event.error
+        });
+      });
+
+      window.addEventListener('unhandledrejection', function (event) {
+        console.error('[landing-ads] PROMISE ERROR', event.reason);
+      });
+
+      record('EMBED INIT START', {
+        formExists: Boolean(document.getElementById('lead-form')),
+        iaPanelExists: Boolean(document.querySelector('.ia-panel')),
+        btnIaExists: Boolean(document.getElementById('btn-ia')),
+        turnstileScriptPresent: Boolean(document.querySelector('script[src*="turnstile"]'))
+      });
+
+      if (!hadWindowConfig) {
+        console.warn('[landing-ads] window._config no existía; aplicado fallback controlado. El embed actual usa _config local.');
+      }
+
+      window.__maudesRecordLandingStep = record;
+    })();
+    window.__maudesRecordLandingStep('CONFIG FALLBACK READY', window.MaudesArqSuiteIntakeConfig);
+  </script>
+  <script
+    src="https://iarquitect.maudesarquitectura.es/embed.js?v=20260430-landing-ads"
+    data-tenant-id="46df1d61-7ffe-4469-8b42-b521eda04e8b"
+    data-mode="modal"
+    data-button-text="Empezar con IA"
+    data-primary-color="#1d1d1b"
+    data-app-url="https://iarquitect.maudesarquitectura.es"
+    onload="window.__maudesRecordLandingStep && window.__maudesRecordLandingStep('EMBED SCRIPT LOAD', { hasApi: Boolean(window.ArqSuiteIntake && window.ArqSuiteIntake.open), loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded) })"
+    onerror="window.__maudesRecordLandingStep && window.__maudesRecordLandingStep('EMBED SCRIPT ERROR', { src: this.src })">
+  </script>
+  <style>
+    .arqsuite-intake-btn {
+      display: none !important;
+    }
+  </style>
+  <script>
+    (function () {
+      var fallbackState = {
+        overlay: null,
+        iframe: null,
+        isOpen: false
+      };
+
+      function getIntakeConfig() {
+        return window.MaudesArqSuiteIntakeConfig || {};
+      }
+
+      function hasOfficialWidgetApi() {
+        return Boolean(
+          window.ArqSuiteIntake &&
+          typeof window.ArqSuiteIntake.open === 'function'
+        );
+      }
+
+      function ensureFallbackWidget(reason) {
+        if (hasOfficialWidgetApi()) {
+          window.__maudesRecordLandingStep('OFFICIAL WIDGET API READY', {
+            reason: reason || null,
+            loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded)
+          });
+          return;
+        }
+
+        var config = getIntakeConfig();
+
+        window.__maudesRecordLandingStep('FALLBACK WIDGET CREATE', {
+          reason: reason || 'API oficial no disponible',
+          loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded),
+          hasArqSuiteIntake: Boolean(window.ArqSuiteIntake),
+          config: config
+        });
+
+        window.ArqSuiteIntake = {
+          open: function (options) {
+            openFallbackIntake(options || {});
+          },
+          close: closeFallbackIntake,
+          forceClose: closeFallbackIntake,
+          configure: function (options) {
+            if (!options) {
+              return;
+            }
+            window.MaudesArqSuiteIntakeConfig = Object.assign({}, getIntakeConfig(), options);
+          },
+          isOpen: function () {
+            return fallbackState.isOpen;
+          },
+          getConfig: function () {
+            return Object.assign({}, getIntakeConfig());
+          }
+        };
+
+        console.warn('[ArqSuiteIntake] Fallback local activado:', reason || 'API oficial no disponible', config);
+      }
+
+      function buildFallbackIntakeUrl(options) {
+        var config = getIntakeConfig();
+        var tenantId = options.tenantId || config.tenantId;
+        var appUrl = (options.appUrl || config.appUrl || '').replace(/\/$/, '');
+
+        if (!tenantId) {
+          console.error('[ArqSuiteIntake] tenantId requerido para abrir el intake.');
+          return null;
+        }
+
+        if (!appUrl) {
+          console.error('[ArqSuiteIntake] appUrl requerido para abrir el intake.');
+          return null;
+        }
+
+        return appUrl + '/intake?tenantId=' + encodeURIComponent(tenantId);
+      }
+
+      function createFallbackOverlay() {
+        if (fallbackState.overlay) {
+          return;
+        }
+
+        window.__maudesRecordLandingStep('FALLBACK OVERLAY CREATE');
+        ensureFallbackStyles();
+
+        var config = getIntakeConfig();
+        var overlay = document.createElement('div');
+        overlay.className = 'arqsuite-intake-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', 'Chat de proyecto');
+
+        var modal = document.createElement('div');
+        modal.className = 'arqsuite-intake-modal';
+
+        var header = document.createElement('div');
+        header.className = 'arqsuite-intake-modal-header';
+        header.style.background = config.primaryColor || '#1d1d1b';
+
+        var title = document.createElement('p');
+        title.className = 'arqsuite-intake-modal-title';
+        title.textContent = config.buttonText || 'Empezar con IA';
+
+        var close = document.createElement('button');
+        close.className = 'arqsuite-intake-close';
+        close.type = 'button';
+        close.setAttribute('aria-label', 'Cerrar chat');
+        close.innerHTML = '&#x2715;';
+        close.addEventListener('click', closeFallbackIntake);
+
+        var iframe = document.createElement('iframe');
+        iframe.className = 'arqsuite-intake-iframe';
+        iframe.setAttribute('allow', 'microphone; camera');
+        iframe.setAttribute('title', 'ArqSuite Intake Chat');
+
+        header.appendChild(title);
+        header.appendChild(close);
+        modal.appendChild(header);
+        modal.appendChild(iframe);
+        overlay.appendChild(modal);
+        overlay.addEventListener('click', function (event) {
+          if (event.target === overlay) {
+            closeFallbackIntake();
+          }
+        });
+
+        fallbackState.overlay = overlay;
+        fallbackState.iframe = iframe;
+        document.body.appendChild(overlay);
+      }
+
+      function ensureFallbackStyles() {
+        if (document.getElementById('maudes-arqsuite-fallback-styles')) {
+          return;
+        }
+
+        var style = document.createElement('style');
+        style.id = 'maudes-arqsuite-fallback-styles';
+        style.textContent = [
+          '.arqsuite-intake-overlay{display:none;position:fixed;inset:0;z-index:2147483641;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:16px;box-sizing:border-box}',
+          '.arqsuite-intake-overlay--open{display:flex}',
+          '.arqsuite-intake-modal{position:relative;width:100%;max-width:520px;height:90vh;max-height:760px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);display:flex;flex-direction:column}',
+          '.arqsuite-intake-modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 12px 20px;flex-shrink:0}',
+          '.arqsuite-intake-modal-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;font-weight:600;color:#fff;margin:0;opacity:.92}',
+          '.arqsuite-intake-close{background:rgba(255,255,255,.18);border:0;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:#fff;line-height:1;padding:0;flex-shrink:0}',
+          '.arqsuite-intake-iframe{flex:1;width:100%;border:0;display:block}',
+          '@media(max-width:580px){.arqsuite-intake-overlay{padding:0;align-items:flex-end}.arqsuite-intake-modal{max-width:100%;height:95vh;max-height:none;border-radius:16px 16px 0 0}}'
+        ].join('');
+        document.head.appendChild(style);
+      }
+
+      function openFallbackIntake(options) {
+        var url = buildFallbackIntakeUrl(options);
+        if (!url) {
+          return;
+        }
+
+        window.__maudesRecordLandingStep('FALLBACK OVERLAY OPEN', { url: url });
+        createFallbackOverlay();
+        fallbackState.iframe.src = url;
+        fallbackState.overlay.classList.add('arqsuite-intake-overlay--open');
+        document.body.style.overflow = 'hidden';
+        fallbackState.isOpen = true;
+      }
+
+      function closeFallbackIntake() {
+        if (!fallbackState.overlay) {
+          return;
+        }
+
+        fallbackState.overlay.classList.remove('arqsuite-intake-overlay--open');
+        if (fallbackState.iframe) {
+          fallbackState.iframe.src = 'about:blank';
+        }
+        document.body.style.overflow = '';
+        fallbackState.isOpen = false;
+      }
+
+      function bindIaButton() {
+        window.__maudesRecordLandingStep('BIND IA BUTTON START', {
+          hasOfficialApi: hasOfficialWidgetApi(),
+          loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded)
+        });
+
+        var iaButton = document.getElementById('btn-ia');
+        if (!iaButton) {
+          console.error('[ArqSuiteIntake] No se encontró #btn-ia.');
+          return;
+        }
+
+        iaButton.addEventListener('click', function () {
+          window.__maudesRecordLandingStep('IA BUTTON CLICK', {
+            hasOfficialApi: hasOfficialWidgetApi(),
+            loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded)
+          });
+
+          ensureFallbackWidget('click sin API oficial disponible');
+
+          window.ArqSuiteIntake.open({
+            tenantId: getIntakeConfig().tenantId,
+            buttonText: getIntakeConfig().buttonText,
+            primaryColor: getIntakeConfig().primaryColor,
+            appUrl: getIntakeConfig().appUrl
+          });
+        });
+
+        window.setTimeout(function () {
+          ensureFallbackWidget('embed.js no expuso ArqSuiteIntake.open tras cargar la landing');
+        }, 1500);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindIaButton);
+      } else {
+        bindIaButton();
+      }
+    })();
+
     (function () {
       var form = document.getElementById('lead-form');
       var select = document.getElementById('tiene_terreno');
@@ -351,3 +659,4 @@
   </script>
 </body>
 </html>
+
