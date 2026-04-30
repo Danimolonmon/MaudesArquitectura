@@ -89,11 +89,17 @@
         </div>
 
         <div class="campaign-container">
+          <div class="campaign-choice-header">
+            <h2>¿Tu terreno permite construir lo que tienes en mente?</h2>
+            <p>Lo analizamos contigo antes de que pierdas tiempo o dinero.</p>
+            <p class="campaign-choice-intro">Puedes empezar como prefieras:</p>
+          </div>
+
           <div class="campaign-left">
             <!-- Columna derecha: formulario sticky -->
             <div class="campaign-form-card" id="formulario">
-              <h3>Comprueba si tu terreno encaja</h3>
-              <p>Respuesta rápida. Evaluamos tu caso real, no una estimación genérica.</p>
+              <h3>Cuéntanos tu caso</h3>
+              <p>Revisamos tu situación real y te orientamos con criterio técnico.</p>
 
               <form class="lead-form" id="lead-form" action="/api/lead" method="post" novalidate>
 
@@ -209,7 +215,7 @@
               Usaremos tus datos para responder a tu solicitud y, si procede, preparar una propuesta. Puedes ejercer tus derechos en cualquier momento.
             </p>
 
-            <p class="form-trust form-field-full">No vendemos casas. Evaluamos tu caso real.</p>
+            <p class="form-trust form-field-full">Hablamos contigo directamente</p>
 
               </form>
             </div>
@@ -218,17 +224,16 @@
           <div class="campaign-right">
             <div class="ia-panel">
               <div class="ia-panel-content">
-                <p class="ia-kicker">Camino rápido</p>
-                <h3>Empieza tu proyecto con IA</h3>
-                <p>Cuéntanos tu parcela y la vivienda que imaginas. Nuestra IA te guía paso a paso para ordenar requisitos antes de hablar con el estudio.</p>
+                <p class="ia-kicker">IA guiada</p>
+                <h3>Haz una primera prueba guiada</h3>
+                <p>Ordena tu idea paso a paso antes de hablar con nosotros.</p>
 
                 <ul class="ia-benefits">
                   <li>Orientación inicial en minutos</li>
-                  <li>Sin compromiso</li>
-                  <li>Pensado para vivienda en parcela propia</li>
                 </ul>
 
-                <button type="button" id="btn-ia">Empezar con IA</button>
+                <button type="button" id="btn-ia">Comprobar mi caso ahora</button>
+                <p class="ia-microcopy">Sin compromiso, sin llamadas</p>
               </div>
             </div>
           </div>
@@ -327,7 +332,7 @@
   <script>
     window.MaudesArqSuiteIntakeConfig = {
       tenantId: '46df1d61-7ffe-4469-8b42-b521eda04e8b',
-      buttonText: 'Empezar con IA',
+      buttonText: 'Comprobar mi caso ahora',
       primaryColor: '#1d1d1b',
       appUrl: 'https://iarquitect.maudesarquitectura.es'
     };
@@ -381,7 +386,7 @@
     src="https://iarquitect.maudesarquitectura.es/embed.js?v=20260430-landing-ads"
     data-tenant-id="46df1d61-7ffe-4469-8b42-b521eda04e8b"
     data-mode="modal"
-    data-button-text="Empezar con IA"
+    data-button-text="Comprobar mi caso ahora"
     data-primary-color="#1d1d1b"
     data-app-url="https://iarquitect.maudesarquitectura.es"
     onload="window.__maudesRecordLandingStep && window.__maudesRecordLandingStep('EMBED SCRIPT LOAD', { hasApi: Boolean(window.ArqSuiteIntake && window.ArqSuiteIntake.open), loadedFlag: Boolean(window.__ArqSuiteIntakeLoaded) })"
@@ -494,7 +499,7 @@
 
         var title = document.createElement('p');
         title.className = 'arqsuite-intake-modal-title';
-        title.textContent = config.buttonText || 'Empezar con IA';
+        title.textContent = config.buttonText || 'Comprobar mi caso ahora';
 
         var close = document.createElement('button');
         close.className = 'arqsuite-intake-close';
