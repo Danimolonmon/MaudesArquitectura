@@ -1,102 +1,60 @@
-# Ajuste de conversión landing Maudes Arquitectura - 30 de abril de 2026
+# Ajuste de copy landing ads - Maudes Arquitectura
+
+Fecha: 30 de abril de 2026
 
 ## Archivos modificados
 
 - `landing-ads.html`
-- `pages-custom.css`
+- `RespuestaArq.md`
 
-## Cambios realizados
+## Texto antes / después
 
-Se ha unificado el bloque de formulario + IA en una idea central:
-
-> Validar si el terreno permite construir lo que el usuario tiene en mente antes de perder tiempo o dinero.
-
-Y se han dejado dos formas claras de empezar:
-
-- Contacto directo con el estudio.
-- Primera prueba guiada con IA.
-
-## Textos antes/después
-
-### Cabecera del bloque
+### Bloque superior del hero
 
 Antes:
 
-- No había cabecera específica encima del bloque formulario + IA.
+- `¿Tienes terreno? Diseñamos tu vivienda desde cero.`
+- `Solo para personas que ya tienen terreno.`
+- `Si estás buscando parcela, esta página no te va a servir todavía.`
+- `Si tienes terreno, puedes comprobar en 1 minuto si tu caso encaja.`
+- Bloque `Esto es para ti si / No es para ti si` con bullets de inclusión y exclusión.
 
 Después:
 
-- Título: `¿Tu terreno permite construir lo que tienes en mente?`
-- Subtítulo: `Lo analizamos contigo antes de que pierdas tiempo o dinero.`
-- Intro: `Puedes empezar como prefieras:`
+- `Diseñamos tu vivienda desde cero.`
 
-### Bloque izquierdo: formulario
+### Texto único encima de formulario + IA
 
 Antes:
 
-- Título: `Comprueba si tu terreno encaja`
-- Subtexto: `Respuesta rápida. Evaluamos tu caso real, no una estimación genérica.`
-- Microcopy inferior: `No vendemos casas. Evaluamos tu caso real.`
+- `¿Tu terreno permite construir lo que tienes en mente?`
+- `Lo analizamos contigo antes de que pierdas tiempo o dinero.`
+- `Puedes empezar como prefieras:`
 
 Después:
 
-- Título: `Cuéntanos tu caso`
-- Subtexto: `Revisamos tu situación real y te orientamos con criterio técnico.`
-- Microcopy inferior: `Hablamos contigo directamente`
+- `Este análisis es especialmente útil si ya tienes terreno o estás valorando uno.`
 
-### Bloque derecho: IA
+### Mensajes de fricción eliminados o suavizados
 
 Antes:
 
-- Kicker: `Camino rápido`
-- Título: `Empieza tu proyecto con IA`
-- Subtexto: `Cuéntanos tu parcela y la vivienda que imaginas. Nuestra IA te guía paso a paso para ordenar requisitos antes de hablar con el estudio.`
-- CTA: `Empezar con IA`
-- Bullets: `Orientación inicial en minutos`, `Sin compromiso`, `Pensado para vivienda en parcela propia`
+- `Esta solución está pensada solo para personas con terreno.`
+- `Ver opciones para mi terreno`
 
 Después:
 
-- Kicker: `IA guiada`
-- Título: `Haz una primera prueba guiada`
-- Subtexto: `Ordena tu idea paso a paso antes de hablar con nosotros.`
-- CTA: `Comprobar mi caso ahora`
-- Bullet conservado: `Orientación inicial en minutos`
-- Microcopy inferior: `Sin compromiso, sin llamadas`
-
-También se actualizó el texto de respaldo del widget IA para que use el mismo CTA: `Comprobar mi caso ahora`.
-
-## Limpieza global
-
-Se eliminaron del bloque los textos:
-
-- `rápido`
-- `respuesta rápida`
-- `camino rápido`
-- `Empieza tu proyecto con IA`
-- `Empezar con IA`
-- `Comprueba si tu terreno encaja`
-
-Comprobación realizada con búsqueda en `landing-ads.html` y `pages-custom.css`: no quedan coincidencias para esos textos.
+- `Puedes contarnos qué estás valorando y revisamos cómo orientarte.`
+- `Ver opciones para mi proyecto`
 
 ## Confirmación de layout
 
-No se ha tocado el backend, la lógica del formulario, los campos, el método de envío ni la estructura de grid de las dos columnas.
+No se ha tocado el layout: se mantienen el grid, los contenedores principales y la posición de formulario a la izquierda e IA a la derecha.
 
-No se han movido bloques del sitio ni se han creado nuevas secciones fuera del bloque existente. Solo se añadió una cabecera textual dentro del mismo bloque formulario + IA y pequeños estilos tipográficos para integrarla con el diseño actual.
+No se han movido bloques ni se han creado nuevas secciones. Tampoco se han tocado los inputs del formulario, el backend ni la lógica de IA.
 
-## Descripción visual del resultado
+## Breve explicación del cambio
 
-Visualmente, el usuario ve primero una pregunta clara sobre la viabilidad del terreno. Justo debajo aparece una frase que explica el valor real: analizar el caso antes de perder tiempo o dinero. Después se presenta la entrada `Puedes empezar como prefieras:` y, debajo, las dos opciones existentes en paralelo:
+Se eliminó el filtro duro que expulsaba al usuario sin parcela y se redujo el mensaje a una sola idea clara antes de las dos acciones: formulario a la izquierda e IA a la derecha.
 
-- A la izquierda, el formulario queda como vía de contacto directo: `Cuéntanos tu caso`.
-- A la derecha, el panel IA queda como vía de primera exploración: `Haz una primera prueba guiada`, con CTA `Comprobar mi caso ahora`.
-
-El bloque mantiene la composición actual: formulario a la izquierda, panel IA a la derecha, mismos campos y misma jerarquía visual de tarjetas.
-
-## Validación final
-
-- Se entiende en pocos segundos que la página sirve para validar la viabilidad del proyecto sobre un terreno.
-- Hay una sola idea central: viabilidad real del proyecto.
-- Hay dos caminos claros: contacto directo o prueba guiada con IA.
-- Se eliminaron redundancias y tono de urgencia vacío.
-- Se conserva el bullet permitido: `Orientación inicial en minutos`.
+El bloque queda más directo, con menos repetición de `terreno`, sin bullets de exclusión y sin textos como `rápido`, `respuesta rápida` o `camino`.
